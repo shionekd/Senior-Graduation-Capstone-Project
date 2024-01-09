@@ -1,38 +1,345 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: yu-gothic-pr6n, sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.main {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  min-height: 100vh;
+  background-color: white;
+}
+
+.loader h2 {
   color: white;
+  font-size: 5rem;
+  text-align: center;
+  font-family: "hello-bloomie-script", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
-.App-link {
-  color: #61dafb;
+.loader span {
+  color: white;
+  font-size: 2rem;
+  text-align: center;
+  font-family: "hello-bloomie-script", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.loader {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+}
+
+.block {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: white;
+}
+
+.content {
+  background-color: white;
+  visibility: hidden;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.loaded {
+  opacity: 0;transition: all 0.5s;
+
+}
+
+/* Scroll */
+/*
+section {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+*/
+
+.scroll {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background-image: url("./images/main_beach.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  color: black;
+}
+
+/*
+.scroll::after {
+  position: absolute;
+  background: black;
+  width: 100%;
+  height: 100%;
+  content: "";
+  top: 0;
+  left: 0;
+  opacity: 0.5;
+}
+*/
+.title {
+  font-size: 1.2rem;
+  position: relative;
+  top: 15%;
+  left: 50%;
+  z-index: 1;
+  transform: translateX(-10%);
+  opacity: 0;
+}
+
+.title.active {
+  opacity: 1;
+  transition: all 3s;
+}
+
+.img-wrap {
+  position: relative;
+  top: 40%;
+  height: 40%;
+  width: 1px;
+  overflow: hidden;
+  opacity: 0;
+}
+
+.img-wrap.active {
+  width: 40vw;
+  opacity: 1;
+  transition: opacity 1s, width 2s;
+}
+
+.img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40vw;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.6);
+}
+
+.img-wrap.title.active > .img {
+  transform: scale(1);
+  transition: 1s ease-out;
+}
+
+.scrollTitle {
+  position: absolute;
+  font-size: 2rem;
+  top: 70%;
+  z-index: 2;
+  letter-spacing: 2px;
+  opacity: 0;
+  transition: all 0.2s;
+}
+
+.scrollTitle.active {
+  opacity: 1;
+  transition: opacity 3s;
+}
+
+
+/* Home */
+/* Cards */
+.mainCards {
+  width: '20rem';
+  margin-bottom: 50px;
+  margin-right: 50px;
+}
+
+.MainImg {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+
+/* About */
+.Krabi p{
+  margin-top: -30px;
+  margin-right: -350px;
+}
+
+.Krabi span{
+  font-family: "allura", sans-serif;
+  font-size: 100px;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.Krabi h2{
+  font-family: "allura", sans-serif;
+  font-size: 100px;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+/* sizing */
+.mapSize {
+  height: 50%;
+}
+
+.photoSize {
+  height: 200px;
+}
+
+.logoSize {
+  height: 150px;
+}
+
+
+/* 画像アップ　*/
+.zoomPhotoOutside {
+  overflow: hidden;
+  display: block;
+  width: 250px;
+  height: 350px;
+}
+
+.zoomPhoto {
+  display: block;
+  width: 250px;
+  height: 350px;
+  transition: all, 0.5s;
+}
+
+.zoomPhoto:hover {
+  transform: scale(1.2);
+  cursor : pointer;
+}
+
+.zoomPhotoWideOutside {
+  overflow: hidden;
+  display: block;
+  width: 350px;
+  height: 250px;
+}
+
+.zoomPhotoWide {
+  display: block;
+  width: 350px;
+  height: 250px;
+  transition: all, 0.5s;
+}
+
+.zoomPhotoWide:hover {
+  transform: scale(1.2);
+  cursor : pointer;
+}
+
+.mt100 {
+  margin-top: 100px;
+}
+
+/* Footer */
+.footer {
+  width: 100%;
+  border-top: 1px solid black;
+  height: 20vh;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 0;
+}
+
+#footer {
+  margin-top: 50px;
+}
+
+.footerRow {
+  height: 100px;
+}
+
+.footerLogo {
+  height: 100px;
+}
+
+/* Map */
+.mapImg {
+  max-width: 100%;
+  height: auto;
+}
+
+
+/* slide */
+.loop_wrap {
+  display: flex;
+  height: 300px;
+  overflow: hidden;
+}
+
+.loop_wrap img {
+  width: auto;
+  height: 100%;
+}
+
+@keyframes loop {
+  0% {
+    transform: translateX(100%);
   }
   to {
-    transform: rotate(360deg);
+    transform: translateX(-100%);
   }
+}
+
+@keyframes loop2 {
+  0% {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-200%);
+  }
+}
+
+
+.loop_wrap img:first-child {
+  animation: loop 50s -25s linear infinite;
+}
+
+.loop_wrap img:last-child {
+  animation: loop2 50s linear infinite;
+}
+
+/* climbing */
+.beachTitle {
+  font-family: "ab-kinmokusei-kuro", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+/* carousel */
+.carousel-image {
+  width: 250px;
+  height: 200px;
+}
+
+.carousel-img {
+  width: 200px;
+  height: 255px;
 }
