@@ -66,6 +66,51 @@
 
 }
 
+
+/* Top画像 */
+.TopImg {
+  overflow: hidden;
+  position: relative;
+}
+
+.TopImg:before,
+.TopImg:after {
+  animation: 2s cubic-bezier(.4, 0, .2, 1) forwards;
+  background: #fff;
+  bottom: 0;
+  content: '';
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+}
+
+.TopImg:before {
+  animation-name: TopImg-before;
+  left: 0;
+  right: 50%;
+}
+
+.TopImg:after {
+  animation-name: TopImg-after;
+  left: 50%;
+  right: 0;
+}
+
+@keyframes TopImg-before {
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes TopImg-after {
+  100% {
+    transform: translateY(-100%);
+  }
+}
+*/
+
+
 /* Scroll */
 /*
 section {
@@ -196,10 +241,16 @@ section {
   font-style: normal;
 }
 
+.titlefont {
+  font-family: hello-bloomie-script, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 3rem;
+}
 
 /* sizing */
 .mapSize {
-  height: 50%;
+  height: 400px;
 }
 
 .photoSize {
@@ -211,7 +262,7 @@ section {
 }
 
 
-/* 画像アップ　*/
+/* 画像アップ Climbing.js　*/
 .zoomPhotoOutside {
   overflow: hidden;
   display: block;
@@ -250,9 +301,27 @@ section {
   cursor : pointer;
 }
 
-.mt100 {
-  margin-top: 100px;
+
+/* 画像アップ spot.js　*/
+.zoomPhotoOutside2 {
+  overflow: hidden;
+  display: block;
+  width: 550px;
+  height: 450px;
 }
+
+.zoomPhoto2 {
+  display: block;
+  width: 550px;
+  height: 450px;
+  transition: all, 0.5s;
+}
+
+.zoomPhoto2:hover {
+  transform: scale(1.2);
+  cursor : pointer;
+}
+
 
 /* Footer */
 .footer {
@@ -342,4 +411,120 @@ section {
 .carousel-img {
   width: 200px;
   height: 255px;
+}
+
+/* modalの外で閉じる⇨画面の最初に戻るエラー
+.ReactModal__Body--open {
+  position: fixed;
+}
+ */
+
+
+/* shop */
+.examplecol{
+	background-color: #b0c4de;
+}
+
+.examplecol h3 {
+  color: white;
+  border-bottom: 1px solid white;
+}
+
+.examplecol p {
+  font-size: small;
+}
+
+.exampleArea a {
+  display:block;
+  width: 100%; /* 横幅 */
+  padding:10px; /* a要素内の余白 */
+  text-decoration: none;
+  color: black;
+}
+
+.exampleArea span {
+  color: dimgrey;
+}
+
+.KrabiShop {
+  font-family: hello-bloomie-script, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 50px;
+}
+
+#HP {
+  text-decoration: none;
+  color: black;
+}
+
+
+/* スライド photo */
+.item {
+  min-height: 20rem;
+  min-width: 20rem;
+  padding: 40px;
+}
+
+.item img {
+  width: 100%;
+  height: 100%;
+  border-radius: 2rem;
+  pointer-events: none;
+}
+
+.item2 {
+  min-height: 20rem;
+  min-width: 20rem;
+  padding: 40px;
+}
+
+.item2 img {
+  width: 102%;
+  height: 75%;
+  border-radius: 2rem;
+  pointer-events: none;
+}
+
+.item3 {
+  min-height: 20rem;
+  min-width: 20rem;
+  padding: 40px;
+}
+
+.item3 img {
+  width: 105%;
+  height: 65%;
+  border-radius: 2rem;
+  pointer-events: none;
+}
+
+.item4 {
+  min-height: 20rem;
+  min-width: 20rem;
+  padding: 40px;
+}
+
+.item4 img {
+  width: 102%;
+  height: 55%;
+  border-radius: 2rem;
+  pointer-events: none;
+}
+
+.inner-carousel {
+  display: flex;
+}
+
+.photoSlide {
+  cursor: grab;
+  overflow: hidden;
+  margin: 0 5%;
+  width: '1500px';
+}
+
+.photoSlide2 {
+  cursor: grab;
+  overflow: hidden;
+  margin: 0 5%;
 }

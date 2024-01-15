@@ -21,6 +21,7 @@ import Railay5 from "../images/intro.jpg";
 import Railay6 from "../images/Railay5.jpg";
 import Railay7 from "../images/Railay3.JPG";
 import Railay8 from "../images/Railay4.JPG";
+import Railay9 from "../images/Railay9.jpg";
 /* Ton sai */
 import TonsaibeachLogo from "../images/Ton-sai-beach-logo.jpg";
 import TonsaiBeach from "../images/Ton-sai-beach.jpg";
@@ -41,7 +42,7 @@ import access3 from "../images/ship.JPEG";
 function Map() {
   return (
     <section id="Map">
-      <Container fluid>
+      <Container>
         <Row>
           <Col className='text-center mt-5 mb-5'>
             <h2>おすすめクライミングエリア</h2>
@@ -137,6 +138,9 @@ function Map() {
                 </Carousel.Item>
                 <Carousel.Item>
                   <img className='carousel-image' src= {Railay8} alt='Carousel1' />
+                </Carousel.Item>
+                <Carousel.Item>
+                  <img className='carousel-image' src= {Railay9} alt='Carousel1' />
                 </Carousel.Item>
               </Carousel>
             </div>

@@ -16,6 +16,11 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="https://use.typekit.net/msb1uhe.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+  
     <script>
       (function(d) {
         var config = {
@@ -95,16 +100,15 @@
         }
       animateBlocks();
       
-        window.onload = function() {
-          setTimeout(() => {
-            const loader = document.querySelector(".loader")
-            loader.classList.add("loaded");
-            const content = document.querySelector(".content")
-            content.style.visibility = "visible"
-          }, 2500);
-        }
-
+      window.onload = function() {
+        setTimeout(() => {
+          loader.remove();
+          const content = document.querySelector(".content");
+          content.style.visibility = "visible";
+        }, 2500);
+      }
     </script>
-    <script src="../src/components/main.js"></script>
+    
+    <!--<script src="../src/components/main.js"></script>-->
   </body>
 </html>

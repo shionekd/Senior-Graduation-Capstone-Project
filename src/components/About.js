@@ -10,14 +10,14 @@ import { MDBCarousel, MDBCarouselItem } from 'mdb-react-ui-kit';
 
 /* img */
 import slide1 from "../images/slide1.jpg";
-import slide2 from "../images/slide2.jpg";
+import slide2 from "../images/CryingRock.jpg";
 import slide3 from "../images/slide3.JPG";
 import Thailand_map from "../images/Thai_map.jpg";
 
 function About() {
   return (
     <section id="About">
-      <Container fluid>
+      <Container>
         <Row>
           <Col className='text-center mt-5 mb-5 Krabi'>
             {/* <p>クラビ</p>
@@ -40,8 +40,7 @@ function About() {
               と呼ばれるほど、多くのクライミングスポットがあります。
             </p>
           </Col>
-          <Col className='mr-5'>
-
+          <Col>
             <MDBCarousel showControls fade>
               <MDBCarouselItem itemId={1}>
                 <img src={slide1} className='d-block w-100' alt='slide1' />

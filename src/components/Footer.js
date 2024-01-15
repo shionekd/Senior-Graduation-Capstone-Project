@@ -12,7 +12,7 @@ import logo from "../images/logo.png";
 function Footer() {
   return (
     <section id="footer">
-      <Container fluid>
+      <Container>
         <Row className="footerRow">
           <Col className="d-flex align-items-center justify-content-center">
           <img
