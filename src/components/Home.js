@@ -1,4 +1,6 @@
 import "../App.css";
+import 'animate.css';
+
 import React from 'react';
 import {
   MDBCard,
@@ -7,9 +9,11 @@ import {
   MDBCardTitle,
   MDBCardText,
 } from 'mdb-react-ui-kit';
+import { useInView } from 'react-intersection-observer';
+import { motion } from "framer-motion";
 
 /* img */
-import MainImg from "../images/main_beach.jpg";
+import MainImg from "../images/BatCave.jpg";
 import Homerock from "../images/Homerock.jpg";
 import topPage from "../images/topPage.JPG";
 import intro from "../images/intro.jpg";
@@ -27,102 +31,133 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
-import { ClassNames } from "@emotion/core";
 
 
 function Home() {
+  const { ref, inView } = useInView({
+    // オプション
+    rootMargin: '-50px', // ref要素が現れてから50px過ぎたら
+  });
+  
   return (
     <section id="home">
       <Container>
-        {/*<Row className="TopImg">*/}
-        <Row>
-          <Col sm={9}>
-            <img
-              alt={MainImg}
-              src={MainImg}
-              style={{width: '1000px'}}
-            />
+        <Row className="justify-content-center text-center mr-5 mt-4">
+          <Col sm={9} className="mainImgCal">
+          <motion.div
+              initial={{
+                opacity: 0,
+                scale: 0.5
+              }}
+              animate={{
+                opacity: 1,
+                scale: 1
+              }}
+              transition={{
+                duration: 6
+              }}
+            >
+              <img
+                alt={MainImg}
+                src={MainImg}
+                className="MainImg"
+              />
+            </motion.div>            
           </Col>
         </Row>
         <Row className="text-center mt-5 justify-content-center">
-          <Col　sm={6}>
+          <Col sm={6} xs={1}>
             <Row>
               <Col>
                 <img
                   alt={Homerock}
                   src={Homerock}
-                  style={{width: '800px'}}
+                  className="Hommerock"
                 />
               </Col>
             </Row>
             <Row>
               <Col sm={9}>
                 <Row>
-                  <Col sm={3}>
-                    <img
-                      alt={topPage}
-                      src={topPage}
-                      style={{width: '250px'}}
-                    />
+                  <Col sm={3} xs={6}>
+                    <div ref={ref} style={{ height: '200px' }}>
+                    {/* refを与えた要素がウインドウ内に現れるとinViewがtrueになります */}
+                      {inView && (
+                        <div className="animate__animated animate__fadeInTopLeft">
+                          <img
+                            alt={topPage}
+                            src={topPage}
+                            className="topPage"
+                          />
+                        </div>
+                      )}
+                    </div>
                   </Col>
                 </Row>
                 <Row className="mt-5">
                   <Col sm={4}></Col>
-                  <Col sm={3}>
-                    <img
-                      alt={intro}
-                      src={intro}
-                      style={{width: '250px'}}
-                    />
+                  <Col sm={3} x={6}>
+                    <div ref={ref} style={{ height: '200px' }}>
+                        {inView && (
+                          <div className="animate__animated animate__fadeInBottomLeft animate__delay-1s">
+                            <img
+                              alt={intro}
+                              src={intro}
+                              className="intro"
+                            />
+                          </div>
+                        )}
+                      </div>
                   </Col>
                 </Row>
               </Col>
               <Col sm={3}>
-                <img
-                  className="mapSize"
-                  alt={Thailand_map}
-                  src={Thailand_map}
-                />
-                </Col>
-            </Row>
-          </Col>
-          <Col sm={5} className="mt-5 ml-5">
-            <Row className="mt-5">
-              <Col>
-                <h2>クライミングの聖地</h2>
-                <h2>Krabi (クラビ)</h2>
+                <div ref={ref} style={{ height: '200px' }}>
+                  {inView && (
+                    <div className="animate__animated animate__backInDown animate__delay-2s">
+                      <img
+                        className="mapSize"
+                        alt={Thailand_map}
+                        src={Thailand_map}
+                      />
+                    </div>
+                  )}
+                </div>
               </Col>
             </Row>
-            <Row className="mt-5">
+          </Col>
+          <Col sm={5} className="mt-5 ml-5" xs={12}>
+            <Row className="ml-5" style={{marginTop: '130px'}}>
               <Col>
-                <h5>
-                  「秘境のリゾート」と呼ばれる場所、<br />
-                  　　　　　　　　　　　　　　　　Krabi (クラビ)。<br />
-                  <br />
-                  東京から飛行機を乗り継いで約8時間。<br />
-                  <br />
-                  Krabiには、世界中からクライマーが集まる。<br />
+                <h5 className="HomeIntroText">
+                  「クライミングの聖地」と呼ばれる場所<br />
+                  <span className="krabiFont">Krabi</span><br />
                   <br /><br />
-                  切り立つ石灰岩と熱帯ジャングルに囲まれた<br />
-                  自然豊かな場所、それがKrabi。<br />
-                  <br /><br />
-                  世界でもめずらしい、<br />
-                  ロッククライミングと青い海の融合、<br />
-                  <br />
-                  そんな「クライミングの聖地」へ、<br />
-                  あなたも訪れてみませんか？
+                  <span style={{fontSize: 'medium'}}>
+                    東京から飛行機を乗り継いで約8時間。<br />
+                    Krabiには世界中からクライマーが集まる。<br />
+                    <br /><br />
+                    切り立つ石灰岩と熱帯ジャングルに囲まれた<br />
+                    自然豊かな場所、それが Krabi。<br />
+                    <br /><br />
+                    世界でもめずらしい<br />
+                    ロッククライミングと青い海の融合<br />
+                    <br />
+                    そんな「クライミングの聖地」へ<br />
+                    あなたも訪れてみませんか？
+                  </span>
                 </h5>
               </Col>
             </Row>
           </Col>
         </Row>
-        <Row>
-              <Col className='text-center' style={{marginLeft: '100px', marginTop: '150px'}}>
-                <h4><span className="titlefont">Krabi climbing</span><br />コンテンツ一覧</h4>
-              </Col>
-            </Row>
-        <Row style={{marginLeft: '100px', marginTop: '50px'}}>
-          <Col className="justify-content-center text-center ml-5" sm={3}>
+        <Row style={{marginTop: '130px'}}>
+          <Col className='text-center'>
+            <h4><span className="titlefont">Krabi Climbing</span><br />コンテンツ一覧</h4>
+          </Col>
+        </Row>
+        <Row className="mt-4">
+          <Col className="justify-content-center text-center mb-5" sm={4}>
             <MDBCard>
               <MDBCardImage
                 src={Activity}
@@ -138,23 +173,24 @@ function Home() {
               </MDBCardBody>
             </MDBCard>
           </Col>
-          <Col className="justify-content-center text-center ml-5" sm={3}>
+          <Col className="justify-content-center text-center mb-5" sm={4}>
             <MDBCard>
               <MDBCardImage
                 src={Map}
                 position="top"
                 alt="..."
+                className="cardMap"
               />
               <MDBCardBody>
-                <MDBCardTitle className="mt-4">クライミングマップ</MDBCardTitle>
+                <MDBCardTitle className="mt-3">クライミングエリア</MDBCardTitle>
                 <MDBCardText className="small mt-4 mb-4">
                   Krabiのおすすめ<br />クライミングエリアはこちら
                 </MDBCardText>
-                <Button className="stretched-link" variant="outline-secondary"  href="Map">Click here</Button>
+                <Button className="stretched-link" variant="outline-secondary"  href="Area">Click here</Button>
               </MDBCardBody>
             </MDBCard>
           </Col>
-          <Col className="justify-content-center text-center ml-5" sm={3}>
+          <Col className="justify-content-center text-center mb-5" sm={4}>
             <MDBCard>
               <MDBCardImage
                 src={Spot}
@@ -162,17 +198,17 @@ function Home() {
                 alt="..."
               />
               <MDBCardBody>
-                <MDBCardTitle>おすすめ<br />クライミングスポット</MDBCardTitle>
+                <MDBCardTitle>おすすめ<br /><span style={{fontSize: '18px'}}>クライミングスポット</span></MDBCardTitle>
                 <MDBCardText className="small mt-3 mb-4">
                   Krabiのおすすめ<br />クライミングスポットはこちら
                 </MDBCardText>
-                <Button className="stretched-link" variant="outline-secondary"  href="Area">Click here</Button>
+                <Button className="stretched-link" variant="outline-secondary"  href="Climbing">Click here</Button>
               </MDBCardBody>
             </MDBCard>
           </Col>
         </Row>
-        <Row style={{marginLeft: '100px'}} className="mt-5">
-          <Col className="justify-content-center text-center ml-5" sm={3}>
+        <Row>
+          <Col className="justify-content-center text-center mb-5" sm={4}>
             <MDBCard>
               <MDBCardImage
                 src={Muaythai}
@@ -188,7 +224,7 @@ function Home() {
               </MDBCardBody>
             </MDBCard>
           </Col>
-          <Col className="justify-content-center text-center ml-5" sm={3}>
+          <Col className="justify-content-center text-center mb-5" sm={4}>
             <MDBCard>
               <MDBCardImage
                 src={Shop}
@@ -204,7 +240,7 @@ function Home() {
               </MDBCardBody>
             </MDBCard>
           </Col>
-          <Col className="justify-content-center text-center ml-5" sm={3}>
+          <Col className="justify-content-center text-center mb-5" sm={4}>
             <MDBCard>
               <MDBCardImage
                 src={Photos}
@@ -212,7 +248,7 @@ function Home() {
                 alt="..."
               />
               <MDBCardBody>
-                <MDBCardTitle className="mt-3">Krabi写真館</MDBCardTitle>
+                <MDBCardTitle className="mt-3">Krabiフォトギャラリー</MDBCardTitle>
                 <MDBCardText className="small mt-4 mb-4">
                   Krabi(クラビ)の写真を<br />見たい方はこちら
                 </MDBCardText>
@@ -221,35 +257,6 @@ function Home() {
             </MDBCard>
           </Col>
         </Row>
-        {/*
-        <Row className="justify-content-center text-center">
-          <Card className="mainCards" style={{ width: '20rem' }}>
-            {/*<div class="img-wrap">
-            <div class="img">
-                <Card.Img variant="top mt-3" src={Activity}/>
-            </div>
-            </div>
-            <Card.Img variant="top mt-3" src={Photos}/>
-            <Card.Body>
-              <Card.Title>Krabi写真館</Card.Title>
-              <Card.Text>
-              Krabi(クラビ)の写真を見たい方はこちら
-              </Card.Text>
-              <Button variant="outline-secondary" href="Photo">Click here</Button>
-            </Card.Body>
-          </Card>
-        </Row>
-      <div class="scroll">
-      <div class="title">
-          <h1>Krabi Climbing</h1>
-      </div>
-      <section>
-          <h2 class="scrollTitle">Cross Scroll</h2>
-          <div class="img-wrap">
-          <div class="img img1"></div>
-          </div>
-      </section>
-      </div>*/}
       </Container>
     </section>
   );

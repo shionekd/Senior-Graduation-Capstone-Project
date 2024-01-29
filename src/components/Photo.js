@@ -38,12 +38,21 @@ import Tonsai3 from "../images/Tonsai3.jpg";
 import Tonsai4 from "../images/Tonsai4.jpg";
 import Tonsai5 from "../images/climbing.JPG";
 import Tonsai6 from "../images/photos.jpg";
+
 import Tonsai7 from "../images/Tonsai7.jpg";
 import Tonsai8 from "../images/Tonsai8.jpg";
-
 import Tonsai9 from "../images/Humanality.jpg";
-import Tonsai10 from "../images/CryingRock.jpg";
-import Tonsai11 from "../images/BigGuy.jpg";
+import Tonsai10 from "../images/sunset.JPG";
+import Tonsai11 from "../images/rock.jpg";
+import Tonsai12 from "../images/beach.jpg";
+
+import foodLogo from "../images/food.jpg";
+import food1 from "../images/food1.jpg";
+import food2 from "../images/food2.jpg";
+import food3 from "../images/food3.jpg";
+import food4 from "../images/food4.jpg";
+import food5 from "../images/food5.jpg";
+
 
 class Photo extends React.Component {
   constructor() {
@@ -53,40 +62,10 @@ class Photo extends React.Component {
     
     this.state = {
       showModal1: false,
-      showModal2: false,
-      showModal3: false,
-      showModal4: false,
-      showModal5: false,
-      showModal6: false,
-      showModal7: false,
-      showModal8: false,
-      showModal9: false,
-      showModal10: false,
-      showModal11: false
     };
 
     this.handleOpenModal1 = this.handleOpenModal1.bind(this);
     this.handleCloseModal1 = this.handleCloseModal1.bind(this);
-    this.handleOpenModal2 = this.handleOpenModal2.bind(this);
-    this.handleCloseModal2 = this.handleCloseModal2.bind(this);
-    this.handleOpenModal3 = this.handleOpenModal3.bind(this);
-    this.handleCloseModal3 = this.handleCloseModal3.bind(this);
-    this.handleOpenModal4 = this.handleOpenModal4.bind(this);
-    this.handleCloseModal4 = this.handleCloseModal4.bind(this);
-    this.handleOpenModal5 = this.handleOpenModal5.bind(this);
-    this.handleCloseModal5 = this.handleCloseModal5.bind(this);
-    this.handleOpenModal6 = this.handleOpenModal6.bind(this);
-    this.handleCloseModal6 = this.handleCloseModal6.bind(this);
-    this.handleOpenModal7 = this.handleOpenModal7.bind(this);
-    this.handleCloseModal7 = this.handleCloseModal7.bind(this);
-    this.handleOpenModal8 = this.handleOpenModal8.bind(this);
-    this.handleCloseModal8 = this.handleCloseModal8.bind(this);
-    this.handleOpenModal9 = this.handleOpenModal9.bind(this);
-    this.handleCloseModal9 = this.handleCloseModal9.bind(this);
-    this.handleOpenModal10 = this.handleOpenModal10.bind(this);
-    this.handleCloseModal10 = this.handleCloseModal10.bind(this);
-    this.handleOpenModal11 = this.handleOpenModal11.bind(this);
-    this.handleCloseModal11 = this.handleCloseModal11.bind(this);
   }
 
   handleOpenModal1 () {
@@ -97,85 +76,6 @@ class Photo extends React.Component {
     this.setState({ showModal1: false });
   }
 
-  handleOpenModal2 () {
-    this.setState({ showModal2: true });
-  }
-
-  handleCloseModal2 () {
-    this.setState({ showModal2: false });
-  }
-
-  handleOpenModal3 () {
-    this.setState({ showModal3: true });
-  }
-
-  handleCloseModal3 () {
-    this.setState({ showModal3: false });
-  }
-
-  handleOpenModal4 () {
-    this.setState({ showModal4: true });
-  }
-
-  handleCloseModal4 () {
-    this.setState({ showModal4: false });
-  }
-
-  handleOpenModal5 () {
-    this.setState({ showModal5: true });
-  }
-
-  handleCloseModal5 () {
-    this.setState({ showModal5: false });
-  }
-
-  handleOpenModal6 () {
-    this.setState({ showModal6: true });
-  }
-
-  handleCloseModal6 () {
-    this.setState({ showModal6: false });
-  }
-
-  handleOpenModal7 () {
-    this.setState({ showModal7: true });
-  }
-
-  handleCloseModal7 () {
-    this.setState({ showModal7: false });
-  }
-
-  handleOpenModal8 () {
-    this.setState({ showModal8: true });
-  }
-
-  handleCloseModal8 () {
-    this.setState({ showModal8: false });
-  }
-
-  handleOpenModal9 () {
-    this.setState({ showModal9: true });
-  }
-
-  handleCloseModal9 () {
-    this.setState({ showModal9: false });
-  }
-
-  handleOpenModal10 () {
-    this.setState({ showModal10: true });
-  }
-
-  handleCloseModal10 () {
-    this.setState({ showModal10: false });
-  }
-
-  handleOpenModal11 () {
-    this.setState({ showModal11: true });
-  }
-
-  handleCloseModal11 () {
-    this.setState({ showModal11: false });
-  }
 
   render () {
     return (
@@ -184,11 +84,11 @@ class Photo extends React.Component {
           <Container>
             <Row>
               <Col className='justify-content-center text-center mt-5'>
-                <h2>Krabi 写真館</h2>
+                <h2>Krabi フォトギャラリー</h2>
               </Col>
             </Row>
             <Row>
-              <Col className='justify-content-center text-center mt-5'>
+              <Col className='justify-content-center text-center mt-3'>
                 <p>
                   ここではkrabiで撮影した写真をご覧いただけます。<br />
                   列ごとにスクロールすることができるので、ぜひご覧ください。
@@ -196,11 +96,11 @@ class Photo extends React.Component {
               </Col>
             </Row>
             <Row>
-              <Col className='justify-content-center text-center mt-5' sm={5}>
+              <Col className='text-left mt-3'>
                 <img
                   src={RailayBeachLogo}
                   alt=''
-                  style={{height: '150px'}}
+                  className='RailayBeachLogo'
                 />
               </Col>
             </Row>
@@ -210,7 +110,7 @@ class Photo extends React.Component {
                   <motion.div className='photoSlide' whileTap={{cursor: "grabbing"}}>
                     <motion.div
                       drag="x"
-                      dragConstraints={{ right: 0, left: -1400 }}
+                      dragConstraints={{ right: 0, left: -1600 }}
                       className='inner-carousel'
                     >
                       <motion.div className='item'>
@@ -266,13 +166,13 @@ class Photo extends React.Component {
                 </div>
               </Col>
             </Row>
-            <Row style={{marginTop: '-50px'}}>
+            <Row className='tnsaiPhotos2'>
               <Col className='text-center'>
                 <div className='photo'>
                   <motion.div className='photoSlide' whileTap={{cursor: "grabbing"}}>
                     <motion.div
                       drag="x"
-                      dragConstraints={{ right: 0, left: -1400 }}
+                      dragConstraints={{ right: 0, left: -1600 }}
                       className='inner-carousel'
                     >
                       <motion.div className='item2'>
@@ -330,11 +230,11 @@ class Photo extends React.Component {
             </Row>
 
             <Row>
-              <Col className='justify-content-center text-center mt-5' sm={5} style={{marginLeft: '800px'}}>
+              <Col className='text-left'>
                 <img
                   src={TonsaibeachLogo}
                   alt=''
-                  style={{height: '150px'}}
+                  className='TonsaibeachLogo'
                 />
               </Col>
             </Row>
@@ -344,7 +244,7 @@ class Photo extends React.Component {
                   <motion.div className='photoSlide' whileTap={{cursor: "grabbing"}}>
                     <motion.div
                       drag="x"
-                      dragConstraints={{ right: 0, left: -750 }}
+                      dragConstraints={{ right: 0, left: -900 }}
                       className='inner-carousel'
                     >
                       <motion.div className='item3'>
@@ -388,13 +288,13 @@ class Photo extends React.Component {
                 </div>
               </Col>
             </Row>
-            <Row style={{marginTop: '-50px'}}>
+            <Row style={{marginTop: '-230px', marginBottom: '-100px'}}>
               <Col className='text-center'>
                 <div className='photo'>
                   <motion.div className='photoSlide' whileTap={{cursor: "grabbing"}}>
                     <motion.div
                       drag="x"
-                      dragConstraints={{ right: 0, left: -430 }}
+                      dragConstraints={{ right: 0, left: -900 }}
                       className='inner-carousel'
                     >
                       <motion.div className='item4'>
@@ -427,24 +327,71 @@ class Photo extends React.Component {
                           alt=''
                         />
                       </motion.div>
+                      <motion.div className='item4'>
+                        <img
+                          src={Tonsai12}
+                          alt=''
+                        />
+                      </motion.div>
+                    </motion.div>
+                  </motion.div>
+                </div>
+              </Col>
+            </Row>
+            <Row>
+              <Col className='text-left mb-2'>
+                <img
+                  src={foodLogo}
+                  alt=''
+                  className='foodLogo'
+                />
+              </Col>
+            </Row>
+            <Row style={{marginTop: '-50px', marginBottom: '-30px'}}>
+              <Col className='text-center'>
+                <div className='photo'>
+                  <motion.div className='photoSlide' whileTap={{cursor: "grabbing"}}>
+                    <motion.div
+                      drag="x"
+                      dragConstraints={{ right: 0, left: -600 }}
+                      className='inner-carousel'
+                    >
+                      <motion.div className='item'>
+                        <img
+                          src={food1}
+                          alt=''
+                        />
+                      </motion.div>
+                      <motion.div className='item'>
+                        <img
+                          src={food2}
+                          alt=''
+                        />
+                      </motion.div>
+                      <motion.div className='item'>
+                        <img
+                          src={food3}
+                          alt=''
+                        />
+                      </motion.div>
+                      <motion.div className='item'>
+                        <img
+                          src={food4}
+                          alt=''
+                        />
+                      </motion.div>
+                      <motion.div className='item'>
+                        <img
+                          src={food5}
+                          alt=''
+                        />
+                      </motion.div>
                     </motion.div>
                   </motion.div>
                 </div>
               </Col>
             </Row>
 
-            <Row className='mb-5' style={{marginTop: '30px'}}>
-              <Col className='justify-content-center text-center mt-5' sm={3}>
-                <div className='zoomPhotoOutside'>
-                  <img
-                    className="zoomPhoto"
-                    src={Railay1}
-                    alt={Railay1}
-                    onClick={this.handleOpenModal1}
-                  />
-                </div>
-              </Col>
-            </Row>
             <>
             <ModalComponent
               isOpen={this.state.showModal1}

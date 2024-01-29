@@ -1,4 +1,7 @@
 import '../App.css';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+import 'animate.css';
 
 /* bootstrap */
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -8,6 +11,7 @@ import Col from 'react-bootstrap/Col';
 import Table from 'react-bootstrap/Table';
 
 /* img */
+import example01 from "../images/findroot.jpg";
 import example02 from "../images/ThePinnacle.jpg";
 import example03 from "../images/example.JPG";
 import krabiRockClimbing from "../images/krabiRockClimbing.png";
@@ -15,12 +19,16 @@ import shop from "../images/shop.JPG";
 
 
 function Shop() {
+  const { ref, inView } = useInView({
+    rootMargin: '-100px'
+  });
+  
   return (
     <section id="Shop">
       <Container >
         <Row>
           <Col className='text-center mt-5'>
-            <h2>おすすめクライミングショップ</h2>
+            <h2 className='pageTitle'>おすすめクライミングショップ</h2>
           </Col>
         </Row>
         <Row>
@@ -28,92 +36,117 @@ function Shop() {
             <p>Krabiでクライミングを楽しむ際は、3通りの楽しみ方があります。</p>
           </Col>
         </Row>
-        <Row>
-          <Col className='justify-content-center text-center examplecol ml-5' sm={3}>
-            <div className='exampleArea'>
-              <a href='map'>
-              <h3 className='mt-3'>01</h3>
-                <img
-                  className='mt-3 mb-3'
-                  alt={example02}
-                  src={example02}
-                  style={{height: '300px'}}
-                />
-              <p>
-                クライミングマップを片手に、<br />クライミングルートを自身で探す。<br />
-                Krabiおすすめクライミングエリアは<span>こちらから</span>
-              </p>
-              </a>
-            </div>
-          </Col>
-          <Col sm={1}></Col>
-          <Col className='justify-content-center text-center examplecol' sm={3}>
-            <div className='exampleArea'>
-              <a href='#example02'>
-              <h3 className='mt-3'>02</h3>
-              <img
-                className='mt-3 mb-3'
-                alt={example02}
-                src={example02}
-                style={{height: '300px'}}
-              />
-              <p>クライミングショップの<br />グループクライミングに参加する。</p>
-              </a>
-            </div>        
-          </Col>
-          <Col sm={1}></Col>
-          <Col className='justify-content-center text-center examplecol' sm={3}>
-            <div className='exampleArea'>
-              <a href='#example03'>
-              <h3 className='mt-3'>03</h3>
-              <img
-                className='mt-3 mb-3'
-                alt={example03}
-                src={example03}
-                style={{height: '300px'}}
-              />
-              <p>クライミングショップに<br />プライベートガイドを頼む。</p>
-              </a>
-            </div>
-          </Col>
-        </Row>
+        <motion.div
+          initial={{
+            y: 600
+          }}
+          animate={{
+            y: 0
+          }}
+          transition={{
+            duration: 5
+          }}
+        >
+          <Row>
+            <Col className='justify-content-center text-center examplecol example mt-3' sm={3}>
+              <div className='exampleArea'>
+                <a href='area'>
+                  <h3 className='mt-2'>01</h3>
+                    <img
+                      className='mt-3 mb-3'
+                      alt={example01}
+                      src={example01}
+                      style={{height: '300px'}}
+                    />
+                  <p>
+                    クライミングマップを片手に、<br />クライミングルートを自身で探す。<br />
+                    <br />
+                    <span style={{fontSize: '0.7rem'}}>Krabiおすすめクライミングエリアは<span> <br />
+                    こちらのページからご覧いただけます。</span></span>
+                  </p>
+                </a>
+              </div>
+            </Col>
+            <Col className='justify-content-center text-center examplecol example mt-3' sm={3}>
+              <div className='exampleArea'>
+                <a href='#KrabiRockClimbing'>
+                  <h3 className='mt-3'>02</h3>
+                  <img
+                    className='mt-3 mb-3'
+                    alt={example02}
+                    src={example02}
+                    style={{height: '300px'}}
+                  />
+                  <p>
+                    クライミングショップの<br />グループクライミングに参加する。<br />
+                    <br />
+                    <span style={{fontSize: '0.7rem'}}>Krabiおすすめクライミングショップは<br />下記にてご案内します。</span>
+                  </p>
+                </a>
+              </div>      
+            </Col>
+            <Col className='justify-content-center text-center examplecol example mt-3' sm={3}>
+              <div className='exampleArea'>
+                <a href='#KrabiRockClimbing'>
+                  <h3 className='mt-3'>03</h3>
+                  <img
+                    className='mt-3 mb-3'
+                    alt={example03}
+                    src={example03}
+                    style={{height: '300px'}}
+                  />
+                  <p>
+                    クライミングショップに<br />プライベートガイドを頼む。<br />
+                    <br />
+                    <span style={{fontSize: '0.7rem'}}>Krabiおすすめクライミングショップは<br />下記にてご案内します。</span>
+                  </p>
+                </a>
+              </div>
+            </Col>
+          </Row>
+        </motion.div>
         <Row style={{marginTop: '100px'}}>
           <Col className='justify-content-center text-center'>
             <h5>このページではおすすめのクライミングショップを紹介します。</h5>
           </Col>
         </Row>
-        <Row style={{marginTop: '50px'}}>
-          <Col>　</Col>
-          <Col className='justify-content-center text-center mt-5' style={{marginLeft: '-100px'}}>
-            <h2 className='justify-content-center text-center KrabiShop' >Krabi Rock Climbing </h2>
+        <Row className='mt-4'>
+          <Col className='mt-4 KrabiShopTitle'>
+            <h2 className='text-right KrabiShop' >Krabi Rock Climbing </h2>
           </Col>
         </Row>
-        <Row>
-          <Col className='justify-content-center text-center' style={{marginLeft: '80px', marginTop: '-70px'}}>
-            <a href='https://krabirockclimbing.com'>
-              <img
-                alt={krabiRockClimbing}
-                src={krabiRockClimbing}
-                style={{width: '350px'}}
-              />
-            </a>
+        <Row id='KrabiRockClimbing'>
+          <Col className='justify-content-center text-center' sm={6}>
+            <div ref={ref} style={{ height: '200px' }}>
+              {inView && (
+                <div className="animate__animated animate__bounce">
+                  <a href='https://krabirockclimbing.com'>
+                    <img
+                      alt={krabiRockClimbing}
+                      src={krabiRockClimbing}
+                      className='krabiRockClimbing'
+                    />
+                  </a>
+                </div>
+              )}
+            </div>
           </Col>
-          <Col className='mt-3' style={{marginLeft: '-80px'}}>
-            <p>
+          <Col className='mt-3 KrabiClimbingText' sm={6}>
+            <p className='KrabiClimbingInfo'>
               <br />
-              「Krabi Rock Climbing」は、Krabiが拠点のクライミングショップです。<br />
+              「Krabi Rock Climbing」はKrabi拠点のクライミングショップです。
               オーナーさんはタイ人の男性で、英語も堪能なとても陽気な方です。<br />
-              ご家族で経営を行なっている、アットホームなクライミングショップです。<br />
+              ご家族経営のアットホームなクライミングショップです。<br />
               <br />
-              こちらのクライミングショップでは、上記で述べた2通りのクライミング方法である<br />
-              グループクライミング、プライベートガイドもどちらも行なっています。<br />
+              「Krabi Rock Climbing」では、上記で述べたクライミング方法のうち<br />
+              グループクライミング、プライベートガイドを行なっています。<br />
               <br />
-              Krabiでクライミングを行う際は、ぜひこちらに連絡をしてみてください。
+              Krabiでクライミングを行う際は、ぜひ連絡をしてみてください。
             </p>
           </Col>
         </Row>
         <Row className='justify-content-center text-center mt-5'>
-          <Col sm={8} className='mt-4'>
+          <Col sm={9} className='mt-4'>
             <Table responsive>
               <thead>
                 <tr>
@@ -138,54 +171,54 @@ function Shop() {
           </Col>
         </Row>
         <Row className='mt-5'>
-          <Col sm={4} style={{marginLeft: '200px', marginTop: '60px'}}>
-            <Row>
-              <Col sm={5}>
-              <p>アドレス</p>
+          <Col className='info' sm={5}>
+            <Row className='mt-5'>
+              <Col sm={5} xs={4}>
+                <p>アドレス</p>
               </Col>
-              <Col>
-              <p>Railay Beach, Ao Nang, Krabi, <br />Thailand 81180</p>
+              <Col sm={7} xs={8}>
+                <p>Railay Beach, Ao Nang, Krabi, <br />Thailand 81180</p>
               </Col>
             </Row>
             <Row>
-              <Col sm={5}>
+              <Col sm={5} xs={4}>
                 <p>営業時間</p>
               </Col>
-              <Col>
+              <Col sm={7} xs={8}>
                 毎日 9:00 ~ 18:00<br />
                 <p className='small'>※雨季は長期休業予定あり、要予約</p>
               </Col>
             </Row>
             <Row>
-              <Col sm={5}>
+              <Col sm={5} xs={4}>
                 <p>HP</p>
               </Col>
-              <Col>
-                <a id='HP' href='https://krabirockclimbing.com'>https://krabirockclimbing.com</a>
+              <Col sm={7} xs={8}>
+                <a className="underlinenon" href='https://krabirockclimbing.com'>https://krabirockclimbing.com</a>
               </Col>
             </Row>
             <Row>
-              <Col sm={5}>
+              <Col sm={5} xs={4}>
                 <p>Email</p>
               </Col>
-              <Col>
+              <Col sm={7} xs={8}>
                 <p>krabirockclimbing@gmail.com</p>
               </Col>
             </Row>
             <Row>
-              <Col sm={5}>
+              <Col sm={5} xs={4}>
                 <p>WHATSAPP & LINE</p>
               </Col>
-              <Col>
+              <Col sm={7} xs={8}>
                 <p>+66 908723319</p>
               </Col>
             </Row>
           </Col>
-          <Col sm={4} style={{marginLeft: '100px', marginTop: '30px'}}>
+          <Col sm={4}>
             <img
               alt={shop}
               src={shop}
-              style={{width: '400px'}}
+              className='shop'
             />
           </Col>
         </Row>

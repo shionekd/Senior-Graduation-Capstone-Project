@@ -13,8 +13,220 @@
   justify-content: center;
   min-height: 100vh;
   background-color: white;
+  overflow: hidden;
 }
 
+/* sizing */
+.logoSize {
+  height: 150px;
+}
+
+.titlefont {
+  font-family: hello-bloomie-script, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 30px;
+  text-decoration: none;
+  color: black;
+}
+
+
+
+/* side bar */
+.inside {
+  height: 200%;
+  transform-origin: top left;
+  transition: transform 0.7s cubic-bezier(1, 0.005, 0.24, 1);
+}
+
+.inside2 {
+  height: 200%;
+  transform-origin: top left;
+  transform: rotateZ( -20deg );
+  -webkit-transition: transform 0.8s ease-in-out;
+}
+
+.content_inner {
+  height: 50%;
+  overflow-y: auto;
+  padding-top: 10px;
+  padding-left: 6%;
+  padding-right: 6%;
+}
+
+.menu_toggle {
+  z-index: 900;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: block;
+  cursor: pointer;
+  width: 100px;
+  height: 80px;
+  background-color: #c33c1e;
+  border-bottom-right-radius: 100%;
+}
+
+.menu_toggle:active i {
+  opacity: 0.8;
+}
+
+.menu_toggle i {
+  color: #f0f0f0;
+}
+
+.menu_toggle .menu_open, .menu_toggle .menu_close {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -15px;
+  margin-left: -12px;
+  transition: transform 0.7s cubic-bezier(1, 0.005, 0.24, 1);
+}
+
+.menu_toggle .menu_open {
+  transform-origin: -100px -100px;
+}
+
+.menu_toggle .menu_close {
+  transform: rotate(30deg);
+  transform-origin: -100px -160px;
+}
+
+.menu_items {
+  position: fixed;
+  bottom: 0;
+  left: 50px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu_items li {
+  height: 60px;
+  margin-left: -15px;
+  margin-bottom: 20px;
+  transform: translateX(-300px);
+  transition: transform 0.7s 0s cubic-bezier(1, 0.005, 0.24, 1);
+}
+.menu_items li:nth-child(2) {
+  margin-left: -2px;
+}
+
+.menu_items li:nth-child(3) {
+  margin-left: 12px;
+}
+
+.menu_items li:nth-child(4) {
+  margin-left: 28px;
+}
+
+.menu_items li:nth-child(5) {
+  margin-left: 40px;
+}
+
+.menu_items li:nth-child(6) {
+  margin-left: 55px;
+}
+
+.menu_items a {
+  display: block;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #c33c1e;
+  transition: color 0.2s;
+}
+.menu_items a .icon {
+  position: relative;
+  display: inline-block;
+  margin-right: 25px;
+  color: #c33c1e;
+}
+
+.menu_items a .icon:after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  content: "";
+  display: block;
+  width: 60px;
+  height: 60px;
+  margin-left: -31px;
+  margin-top: -30px;
+  border-radius: 100%;
+  border: 2px solid #c33c1e;
+  transition: border-color 0.2s;
+}
+
+.menu_items a:after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  content: "";
+  display: block;
+  width: 60px;
+  height: 60px;
+  margin-left: -31px;
+  margin-top: -30px;
+  border-radius: 100%;
+  transition: border-color 0.2s;
+}
+
+.menu_items a:hover {
+  color: #f3b74f;
+  text-decoration: none;
+  font-size: large;
+}
+.menu_items a:hover .icon:after {
+  border-color: #f3b74f;
+  font-size: large;
+}
+
+.icons:hover {
+  fill: #f3b74f;
+
+}
+
+.shazam .menu {
+  transform: rotate(-30deg);
+}
+
+.shazam .menu_open {
+  transform: rotate(-30deg);
+}
+
+.shazam .menu_close {
+  transform: rotate(0);
+}
+
+.shazam .menu_items li {
+  transform: translateX(0);
+  transition: transform 0.35s 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.shazam .menu_items li:nth-child(2) {
+  transition-delay: 0.47s;
+}
+
+.shazam .menu_items li:nth-child(3) {
+  transition-delay: 0.48s;
+}
+
+.shazam .menu_items li:nth-child(4) {
+  transition-delay: 0.49s;
+}
+
+.shazam .menu_items li:nth-child(5) {
+  transition-delay: 0.50s;
+}
+
+.shazam .menu_items li:nth-child(6) {
+  transition-delay: 0.51s;
+}
+
+
+/* loading */
 .loader h2 {
   color: white;
   font-size: 5rem;
@@ -66,37 +278,6 @@
 
 }
 
-
-/* Top画像 */
-.TopImg {
-  overflow: hidden;
-  position: relative;
-}
-
-.TopImg:before,
-.TopImg:after {
-  animation: 2s cubic-bezier(.4, 0, .2, 1) forwards;
-  background: #fff;
-  bottom: 0;
-  content: '';
-  pointer-events: none;
-  position: absolute;
-  top: 0;
-  z-index: 1;
-}
-
-.TopImg:before {
-  animation-name: TopImg-before;
-  left: 0;
-  right: 50%;
-}
-
-.TopImg:after {
-  animation-name: TopImg-after;
-  left: 50%;
-  right: 0;
-}
-
 @keyframes TopImg-before {
   100% {
     transform: translateY(100%);
@@ -108,7 +289,109 @@
     transform: translateY(-100%);
   }
 }
-*/
+
+/* Footer */
+.footer {
+  width: 100%;
+  border-top: 1px solid black;
+  height: 20vh;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 0;
+}
+
+#footer {
+  margin-top: 50px;
+  background-image: url(./images/footer.jpg);
+  background-repeat: no-repeat;
+}
+
+.footerRow {
+  height: 180px;
+}
+
+.footerLogo {
+  height: 100px;
+}
+
+.contactInfo {
+  font-family: "playfair-display", serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.footerDLD a {
+  text-decoration: none;
+  font-size: small;
+  color: black;
+}
+
+.footerDLD a:hover {
+  color: #b0c4de;
+}
+
+
+/* modal */
+.zoomPhotoOutside {
+  overflow: hidden;
+  display: block;
+  width: 250px;
+  height: 350px;
+}
+
+.zoomPhoto {
+  display: block;
+  width: 250px;
+  height: 350px;
+  transition: all, 0.5s;
+}
+
+.zoomPhoto:hover {
+  transform: scale(1.2);
+  cursor : pointer;
+}
+
+.zoomPhotoWideOutside {
+  overflow: hidden;
+  display: block;
+  width: 350px;
+  height: 250px;
+}
+
+.zoomPhotoWide {
+  display: block;
+  width: 350px;
+  height: 250px;
+  transition: all, 0.5s;
+}
+
+.zoomPhotoWide:hover {
+  transform: scale(1.2);
+  cursor : pointer;
+}
+
+
+.zoomPhotoOutside2 {
+  overflow: hidden;
+  display: block;
+  width: 550px;
+  height: 450px;
+}
+
+.zoomPhoto2 {
+  display: block;
+  width: 550px;
+  height: 450px;
+  transition: all, 0.5s;
+}
+
+.zoomPhoto2:hover {
+  transform: scale(1.2);
+  cursor : pointer;
+}
 
 
 /* Scroll */
@@ -122,28 +405,112 @@ section {
 }
 */
 
-.scroll {
-  position: relative;
-  height: 100%;
-  width: 100%;
-  background-image: url("./images/main_beach.jpg");
-  background-size: cover;
-  background-attachment: fixed;
+
+
+/* app.js */
+
+.KrabiClimbingLogo {
+  text-decoration: none;
   color: black;
 }
 
-/*
-.scroll::after {
-  position: absolute;
-  background: black;
-  width: 100%;
-  height: 100%;
-  content: "";
-  top: 0;
-  left: 0;
-  opacity: 0.5;
+.KrabiClimbingLogo:hover {
+  color: black;
+  text-decoration: none;
 }
-*/
+
+.KrabiClimbingCol {
+  margin-left: 80px;
+}
+
+.ajustdiv {
+  margin-left: 70px;
+  align-items: center; 
+  justify-content: center;
+}
+
+
+
+/* home.js */
+.krabiFont {
+  font-family: "playfair-display", serif;
+  font-weight: 700;
+  font-style: italic;
+  font-size: 2.5rem;
+}
+
+.Krabi p{
+  margin-top: -30px;
+  margin-right: -350px;
+}
+
+.Krabi span{
+  font-family: "allura", sans-serif;
+  font-size: 100px;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.Krabi h2{
+  font-family: "allura", sans-serif;
+  font-size: 100px;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.mapSize {
+  height: 400px;
+}
+
+.MainImg {
+  width: 100%;
+  position: relative;
+  height: 100%;
+}
+
+.HomeLogo {
+  height: 55px;
+}
+
+.mainImgCal {
+  margin-left: 50px;
+}
+
+.Hommerock {
+  width: 800px;
+}
+
+.topPage {
+  width: 250px;
+}
+
+.intro {
+  width: 250px;
+}
+
+.contentsShow {
+  margin-top: 300px;
+}
+
+.cardMap {
+  height: 267px;
+}
+
+
+
+/* about.js */
+.Thailand_map {
+  height: 450px;
+}
+
+.pdfDL {
+  margin-left: 100px;
+}
+
+.leafletHeight {
+  height: 300px;
+}
+
 .title {
   font-size: 1.2rem;
   position: relative;
@@ -159,7 +526,17 @@ section {
   transition: all 3s;
 }
 
-.img-wrap {
+/*.scroll {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  background-image: url("./images/main_beach.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  color: black;
+}*/
+
+/*.img-wrap {
   position: relative;
   top: 40%;
   height: 40%;
@@ -206,156 +583,14 @@ section {
 }
 
 
-/* Home */
-/* Cards */
 .mainCards {
   width: '20rem';
   margin-bottom: 50px;
   margin-right: 50px;
 }
+*/
 
-.MainImg {
-  position: relative;
-  height: 100%;
-  width: 100%;
-}
-
-
-/* About */
-.Krabi p{
-  margin-top: -30px;
-  margin-right: -350px;
-}
-
-.Krabi span{
-  font-family: "allura", sans-serif;
-  font-size: 100px;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.Krabi h2{
-  font-family: "allura", sans-serif;
-  font-size: 100px;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.titlefont {
-  font-family: hello-bloomie-script, sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 3rem;
-}
-
-/* sizing */
-.mapSize {
-  height: 400px;
-}
-
-.photoSize {
-  height: 200px;
-}
-
-.logoSize {
-  height: 150px;
-}
-
-
-/* 画像アップ Climbing.js　*/
-.zoomPhotoOutside {
-  overflow: hidden;
-  display: block;
-  width: 250px;
-  height: 350px;
-}
-
-.zoomPhoto {
-  display: block;
-  width: 250px;
-  height: 350px;
-  transition: all, 0.5s;
-}
-
-.zoomPhoto:hover {
-  transform: scale(1.2);
-  cursor : pointer;
-}
-
-.zoomPhotoWideOutside {
-  overflow: hidden;
-  display: block;
-  width: 350px;
-  height: 250px;
-}
-
-.zoomPhotoWide {
-  display: block;
-  width: 350px;
-  height: 250px;
-  transition: all, 0.5s;
-}
-
-.zoomPhotoWide:hover {
-  transform: scale(1.2);
-  cursor : pointer;
-}
-
-
-/* 画像アップ spot.js　*/
-.zoomPhotoOutside2 {
-  overflow: hidden;
-  display: block;
-  width: 550px;
-  height: 450px;
-}
-
-.zoomPhoto2 {
-  display: block;
-  width: 550px;
-  height: 450px;
-  transition: all, 0.5s;
-}
-
-.zoomPhoto2:hover {
-  transform: scale(1.2);
-  cursor : pointer;
-}
-
-
-/* Footer */
-.footer {
-  width: 100%;
-  border-top: 1px solid black;
-  height: 20vh;
-  position: absolute;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  right: 0;
-}
-
-#footer {
-  margin-top: 50px;
-}
-
-.footerRow {
-  height: 100px;
-}
-
-.footerLogo {
-  height: 100px;
-}
-
-/* Map */
-.mapImg {
-  max-width: 100%;
-  height: auto;
-}
-
-
-/* slide */
+/*
 .loop_wrap {
   display: flex;
   height: 300px;
@@ -394,15 +629,38 @@ section {
   animation: loop2 50s linear infinite;
 }
 
-/* climbing */
 .beachTitle {
   font-family: "ab-kinmokusei-kuro", sans-serif;
   font-weight: 400;
   font-style: normal;
 }
 
+*/
 
-/* carousel */
+/* area.js */
+.areaPhoto {
+  height: 400px;
+  margin-left: 50px;
+  margin-top: -10px;
+}
+
+.ClimbingAreaText {
+  margin-left: 170px;
+}
+
+.KrabiArea {
+  width: 800px;
+}
+
+.photoSize {
+  height: 200px;
+}
+
+.mapImg {
+  max-width: 100%;
+  height: auto;
+}
+
 .carousel-image {
   width: 250px;
   height: 200px;
@@ -413,16 +671,124 @@ section {
   height: 255px;
 }
 
-/* modalの外で閉じる⇨画面の最初に戻るエラー
-.ReactModal__Body--open {
-  position: fixed;
+.spot {
+  height: 400px;
 }
- */
+
+.areaRairay {
+  margin-left: 80px;
+}
+
+.accessImg2 {
+  margin-left: -40px;
+  margin-right: 23px;
+}
 
 
-/* shop */
+
+
+/* climbing */
+.onetwothreeMap {
+  height: 500px;
+}
+
+.tonsaiMap {
+  height: 500px;
+}
+
+.weesTitle {
+  width: 700px;
+  margin-left: -110px;
+  margin-bottom: -40px;
+}
+
+.weesMap {
+  height: 600px;
+  margin-left: 50px;
+}
+
+
+
+
+/* spot */
+.BatCaveLogo {
+  height: 130px;
+}
+
+.batCave {
+  margin-left: 50px;
+}
+
+.accessBatcave {
+  margin-top: -50px;
+}
+
+.BatCaveMap {
+  height: 400px;
+}
+
+.batCaveGoogle {
+  margin-top: 100px;
+}
+
+.matginTp {
+  margin-top: 150px;
+}
+
+.MuayThaiLogo {
+  height: 150px;
+  margin-top: 100px;
+}
+
+.MuayThaiText {
+  margin-left: 100px;
+}
+
+.batCavemarginTop {
+  margin-top: 100px;
+}
+
+.MuayThaiPhoto {
+  margin-top: -80px;
+  height: 300px;
+  border-radius: 20%;
+
+}
+
+.MuayThaigoogle {
+  margin-top: -30px;
+}
+
+.LocalThaiFoodRestaurantLogo {
+  width: 600px;
+  margin-top: 100px;
+}
+
+.LocalThaiFoodRestaurantText {
+  margin-left: 100px;
+}
+
+.Coco2004Restaurant {
+  height: 300px;
+  margin-top: -50px;
+}
+
+.thaiFood {
+  margin-left: 100px;
+}
+
+
+
+
+/* shop.js */
+.example {
+  margin-right: 20px;
+  margin-left: 70px;
+  width: 350px;
+}
+
 .examplecol{
-	background-color: #b0c4de;
+  background-color: #b0c4de;
 }
 
 .examplecol h3 {
@@ -436,14 +802,18 @@ section {
 
 .exampleArea a {
   display:block;
-  width: 100%; /* 横幅 */
-  padding:10px; /* a要素内の余白 */
+  width: 100%;
+  padding:10px;
   text-decoration: none;
   color: black;
 }
 
 .exampleArea span {
   color: dimgrey;
+}
+
+.KrabiShopTitle {
+  margin-left: -100px;
 }
 
 .KrabiShop {
@@ -453,13 +823,48 @@ section {
   font-size: 50px;
 }
 
-#HP {
+.krabiRockClimbing {
+  width: 350px;
+  margin-top: -50px;
+}
+
+.KrabiClimbingText {
+  margin-left: -50px;
+}
+
+.underlinenon {
   text-decoration: none;
   color: black;
 }
 
+.info {
+  margin-left: 120px;
+}
 
-/* スライド photo */
+.shop {
+  margin-left: 50px;
+  margin-top: 30px;
+  width: 400px;
+}
+
+
+/* photo.js */
+.RailayBeachLogo {
+  height: 100px;
+  margin-left: 90px;
+}
+
+.TonsaibeachLogo {
+  height: 100px;
+  margin-left: 100px;
+  margin-top: -50px;
+}
+
+.food {
+  margin-top: -30px;
+  margin-bottom: -100px;
+}
+
 .item {
   min-height: 20rem;
   min-width: 20rem;
@@ -487,7 +892,7 @@ section {
 }
 
 .item3 {
-  min-height: 20rem;
+  min-height: 38rem;
   min-width: 20rem;
   padding: 40px;
 }
@@ -500,14 +905,14 @@ section {
 }
 
 .item4 {
-  min-height: 20rem;
+  min-height: 38rem;
   min-width: 20rem;
   padding: 40px;
 }
 
 .item4 img {
-  width: 102%;
-  height: 55%;
+  width: 105%;
+  height: 65%;
   border-radius: 2rem;
   pointer-events: none;
 }
@@ -519,12 +924,357 @@ section {
 .photoSlide {
   cursor: grab;
   overflow: hidden;
-  margin: 0 5%;
-  width: '1500px';
 }
 
 .photoSlide2 {
   cursor: grab;
   overflow: hidden;
-  margin: 0 5%;
+  /*margin: 0 2%;*/
+}
+
+.foodLogo {
+  margin-left: 90px;
+  margin-top: -50px;
+  height: 80px;
+}
+
+
+
+/*スマホ向けのCSS*/
+@media screen and ( max-width: 420px ) {
+  .loader {
+    margin: auto;
+    width: 90%
+  }
+
+  .inside2 {
+    height: 200%;
+    transform-origin: top left;
+    transform: rotateZ( -120deg );
+    -webkit-transition: transform 0.8s ease-in-out;
+  }
+
+  .menu_toggle {
+    z-index: 900;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: block;
+    cursor: pointer;
+    width: 60px;
+    height: 50px;
+    background-color: #c33c1e;
+    border-bottom-right-radius: 100%;
+  }
+
+  .pageTitle{
+    font-size: 20px;
+  }
+
+  /* footer */
+  #footer {
+    background-size: 300px;
+    height: 100px;
+  }
+
+/* home.js */
+  .visibilityHidden {
+    visibility: hidden;
+    margin-bottom: -50px;
+  }
+
+  .MainImg {
+    width: 300px;
+    margin-left: -35px;
+  }
+  .HomeLogo {
+    height: 45px;
+    margin-left: -90px;
+    margin-top: 15px;
+    }
+
+  .titlefont {
+    font-family: hello-bloomie-script, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
+    margin-top: 20px;
+  }
+
+  .KrabiClimbingLogo {
+    margin-left: -55px;
+    margin-top: -50px;
+  }
+  
+  .mainImgCal {
+    margin-left: 60px;
+  }
+
+  .Hommerock {
+    width: 300px;
+    margin-left: -110px;
+  }
+  
+  .topPage {
+    margin-left: -110px;
+  }
+
+  .intro {
+    margin-left: -110px;
+  }
+
+  .mapSize {
+    height: 300px;
+    margin-left: -50px;
+  }
+
+  .HomeIntroText {
+    margin-left: -100px;
+  }
+
+
+  /* about.js */
+  .Krabi h2 {
+    font-size: 50px;
+  }
+
+
+  /* about.js */
+  .Thailand_map {
+    margin-top: -100px;
+    height: 350px;
+  }
+
+  .KrabiGoogleMap iframe{
+    margin-left: -30px;
+  }
+
+  .pdfDL {
+    margin-left: -10px;
+  }
+  
+  .leafletHeight {
+    height: 200px;
+  }
+
+
+  /* area.js */
+  .areaPhoto {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-bottom: 30px;
+  }
+  .areaTitle{
+    font-size: 22px;
+  }
+  
+  .KrabiArea {
+    width: 300px;
+  }
+
+  .logoSize {
+    width: 300px;
+  }
+
+  .areaRairay {
+    margin-left: 0px;
+  }
+
+  .accessImgArea {
+    margin-left: 10px;
+  }
+
+  .accessImg1 {
+    width: 260px;
+  }
+
+  .accessImg2 {
+    margin-left: 10px;
+  }
+  
+  .accessImg3 {
+    margin-left: 15px;
+  }
+
+
+  /* climbing.js */
+  .tonsaiTitle {
+    margin-left: 0px;
+  }
+
+  .typeTitle {
+    font-size: 8px;
+  }
+
+  .zoomPhotoOutside {
+    margin-left: 30px;
+  }
+
+  .zoomPhotoWide {
+    width: 250px;
+    height: 180px;
+    margin-left: 20px;
+  }
+  
+  .zoomPhotoWideOutside {
+    overflow: hidden;
+    display: block;
+    width: 250px;
+    height: 180px;
+  }
+
+  .onetwothreeMap {
+    height: 400px;
+    width: 300px;
+  }
+
+  .tonsaiMap {
+    width: 300px;
+    height: 400px;
+  }
+
+  .weesTitle {
+    margin-left: 0px;
+    width: 350px;
+    margin-bottom: 0px;
+  }
+
+  .weesMap {
+    height: 400px;
+    width: 300px;
+  }
+
+
+
+
+  /* spot */
+  .BatCaveLogo {
+    width: 300px;
+  }
+
+  .batCave {
+    margin-left: 0px;
+  }
+
+  .accessBatcave {
+    margin-top: -50px;
+  }
+
+  .BatCaveMap {
+    height: 400px;
+    margin-top: -200px;
+  }
+
+  .batCaveGoogle {
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+
+  .matginTp {
+    margin-top: 150px;
+  }
+
+  .MuayThaiLogo {
+    width: 300px;
+    margin-top: 50px;
+  }
+
+  .MuayThaiText {
+    margin-left: 0px;
+  }
+
+  .MuayThaiPhoto {
+    margin-top: 10px;
+  }
+
+  .MuayThaigoogle {
+    margin-top: 40px;
+}
+
+  .zoomPhoto2 {
+    display: block;
+    width: 300px;
+    height: 255px;
+    transition: all, 0.5s;
+  }
+
+  .batCavemarginTop {
+    margin-top: 50px;
+  }
+
+  .LocalThaiFoodRestaurantLogo {
+    width: 300px;
+    margin-top: 100px;
+  }
+
+  .LocalThaiFoodRestaurantText {
+    margin-left: 0px;
+    margin-top: 10px;
+  }
+
+  .Coco2004Restaurant {
+    height: 300px;
+    margin-top: 20px;
+  }
+
+  .thaiFood {
+    margin-left: 80px;
+  }
+
+  /* shop.js */
+  .example {
+    margin-left: 0px;
+    width: 300px;
+  }
+
+  .KrabiShopTitle {
+    margin-left: -20px;
+  }
+  .KrabiShop {
+    font-size: 30px;
+  }
+
+  .krabiRockClimbing {
+    width: 300px;
+    margin-top: 0px;
+  }
+
+  .KrabiClimbingText {
+    margin-left: 0px;
+  }
+  
+  .KrabiClimbingInfo {
+    margin-top: 40px;
+  }
+
+  .info {
+    margin-left: 0px;
+  }
+
+  .shop {
+    margin-left: 0px;
+    width: 300px;
+  }
+
+
+  /* photo.js */
+.RailayBeachLogo {
+  width: 300px;
+  margin-left: 0px;
+}
+
+.TonsaibeachLogo {
+  width: 300px;
+  margin-left: 0px;
+}
+
+.tnsaiPhotos2 {
+  margin-top: 0px;
+}
+
+.food {
+  margin-top: -230px;
+  margin-bottom: -100px;
+}
+
 }

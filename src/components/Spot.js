@@ -1,7 +1,9 @@
 import '../App.css';
+import 'animate.css';
 
 import React from 'react';
 import ModalComponent from './Modal';
+import { motion } from 'framer-motion';
 
 /* bootstrap */
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -116,25 +118,53 @@ class Spot extends React.Component {
             </Row>
             <Row>
               <Col className='text-center' sm={4}>
-                <img
-                  className="logoSize"
-                  alt={BatCaveLogo}
-                  src={BatCaveLogo}
-                />
+                <motion.div
+                  initial={{
+                    opacity: 0,
+                    x: -300
+                  }}
+                  animate={{
+                    opacity: 1,
+                    x: 0
+                  }}
+                  transition={{
+                    duration: 7
+                  }}
+                >
+                  <img
+                    className="BatCaveLogo"
+                    alt={BatCaveLogo}
+                    src={BatCaveLogo}
+                  />
+                </motion.div>
               </Col>
             </Row>
             <Row>
-              <Col className='justify-content-center text-center' style={{ marginLeft: '50px' }}>
+              <Col className='justify-content-center text-center batCave' sm={5}>
                 <p>
                   Bat Cave(バット ケーブ)は西側のRailay beachに位置し、<br />
                   Railay beachの象徴である、大きな山の中の洞窟です。<br />
                   <br />
                 </p>
-                <img
-                  alt={Mountain}
-                  src={Mountain}
-                  style={{ height: '200px' }}
-                />
+                  <motion.div
+                    initial={{
+                      opacity: 0,
+                      x: -300
+                    }}
+                    animate={{
+                      opacity: 1,
+                      x: 0
+                    }}
+                    transition={{
+                      duration: 7
+                    }}
+                  >
+                    <img
+                      alt={Mountain}
+                      src={Mountain}
+                      style={{ height: '250px',borderRadius: '50%' }}
+                    />
+                  </motion.div>
                 <p>
                   <br />
                   <br />
@@ -143,45 +173,60 @@ class Spot extends React.Component {
                   ハイキングをすることができます。
                 </p>
               </Col>
-              <Col className='justify-content-center text-center'  style={{ marginTop: '-80px' }} >
+              <Col className='justify-content-center text-center accessBatcave' sm={6}>
                 <div className='zoomPhotoOutside2'>
-                  <img
-                    className="zoomPhoto2"
-                    src={BatCave}
-                    alt={BatCave}
-                    onClick={this.handleOpenModal1}
-                  />
+                  <motion.div
+                    initial={{
+                      opacity: 0,
+                      x: 300
+                    }}
+                    animate={{
+                      opacity: 1,
+                      x: 0
+                    }}
+                    transition={{
+                      duration: 7
+                    }}
+                  >
+                    <img
+                      className="zoomPhoto2"
+                      src={BatCave}
+                      alt={BatCave}
+                      onClick={this.handleOpenModal1}
+                    />
+                  </motion.div>
                 </div>
               </Col>
             </Row>
-            <Row>
-              <Col className='text-center mt-5' style={{ height: '400px' }} sm={3}>
+            <Row className='mt-5'>
+              <Col className='text-center mt-5' sm={3}>
                 <img
                   alt={BatCaveMap}
                   src={BatCaveMap}
-                  style={{ height: '400px' }}
+                  className='BatCaveMap'
                 />
               </Col>
-              <Col className='text-center' style={{ height: '400px', marginLeft:'-50px', marginTop: '110px' }} sm={3}>
+              <Col className='text-center' sm={3}>
                 <iframe
                     src={'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3950.9102041185843!2d98.83491900997127!3d8.00819678264782!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3051eb105ca3b2d5%3A0xa593b9fc04e446b9!2sBat%20Cave!5e0!3m2!1sja!2sjp!4v1704765613189!5m2!1sja!2sjp'}
                     style={{width: '200px', height: '300px', border: '0', allowfullscreen: "", loading: 'lazy', referrerpolicy: 'no-referrer-when-downgrade'}}
                     title={'Bat Cave'}
+                    className='batCaveGoogle'
                   />
               </Col>
-              <Col className='mt-5'  sm={6}>
+              <Col className='mt-3' sm={6}>
                 <h4>アクセス</h4>
                 <p>
                   <br />
                   Bat Caveへは、Phra Nang Beach(プラナン ビーチ)から出発します。<br />
-                  Phra Nang Beachを北に進み、海岸の一番端にある道から登山がスタートします。<br />
-                  Bat Caveの山頂への途中には、岩場を登ったり、急な坂道を登ることが多いため、<br />
-                  スニーカーとヘッドライトが必需品です。<br />
+                  Phra Nang Beachを北に進み、海岸の一番端にある道から登山がスタートします。
+                  Bat Caveの山頂への途中には、岩場を登ったり、急な坂道を登ることが多いため、
+                  スニーカーとヘッドライトは必需品です。<br />
                   <br />
-                  険しい道のりを登り始めてから約30分ほどすると、景色が段々と明るくなりはじめ、<br />
+                  険しい道のりを登り始めてから約30分ほどすると、景色が段々と明るくなりはじめ、
                   頂上に着くと、青い海がキラキラと輝く、素晴らしい景色が目の前に現れます。<br />
                   <br />
-                  頂上の眺めを楽しんだ後は、来た道を戻り山を下るか、<br />
+                  頂上の眺めを楽しんだ後は、来た道を戻り山を下るか、
                   山の反対側のRailay beachへ懸垂下降をすることもできます。<br />
                   <br />
                   Bat Caveへの道のりには、険しい山道を登る必要があるため、<br />
@@ -189,8 +234,8 @@ class Spot extends React.Component {
                 </p>
               </Col>
             </Row>
-            <Row>
-              <Col>
+            <Row className='batCavemarginTop'>
+              <Col className='mt-5' sm={3}>
                 <div className='zoomPhotoOutside'>
                   <img
                     className="zoomPhoto"
@@ -200,7 +245,7 @@ class Spot extends React.Component {
                   />
                 </div>
               </Col>
-              <Col>
+              <Col className='mt-5' sm={3}>
                 <div className='zoomPhotoOutside'>
                   <img
                     className="zoomPhoto"
@@ -210,7 +255,7 @@ class Spot extends React.Component {
                   />
                 </div>
               </Col>
-              <Col>
+              <Col className='mt-5' sm={3}>
                 <div className='zoomPhotoOutside'>
                   <img
                     className="zoomPhoto"
@@ -220,7 +265,7 @@ class Spot extends React.Component {
                   />
                 </div>
               </Col>
-              <Col>
+              <Col className='mt-5' sm={3}>
                 <div className='zoomPhotoWideOutside'>
                   <img
                     className="zoomPhotoWide"
@@ -232,80 +277,81 @@ class Spot extends React.Component {
                 <p><br />懸垂下降をする場合は、ヘルメット、ロープ、などの各種ギアの持参が必要です。</p>
               </Col>
             </Row>
-            <Row style={{ marginTop: '150px' }}>
+            <Row>
               <Col className='text-center' sm={4}>
                 <img
-                  className="logoSize"
                   alt={MuayThaiLogo}
                   src={MuayThaiLogo}
+                  className="MuayThaiLogo"
                 />
               </Col>
             </Row>
             <Row>
-              <Col  style={{marginLeft: '100px'}} sm={4}>
+              <Col  className='MuayThaiText' sm={4}>
                 <p>
                   MuayThai(ムエタイ)とはタイの国技であり、<br />
                   キックボクシングの原型になった格闘技です。<br />
-                  MuayThaiの他には、「タイ式ボクシング」または<br />
+                  MuayThaiの他には、「タイ式ボクシング」または
                   「タイボクシング」とも呼ばれています。<br />
                   <br />
-                  東側のRailay beachから北に進んだ飲食店街にある<br />
-                  「The Last Bar」では、夜になるとMuayThaiイベントが<br />
-                  週に2回ほど行われています。Railay beachで<br />
+                  東側のRailay beachから北に進んだ飲食店街に<br />
+                  ある「The Last Bar」では、夜になるとMuayThaiイベントが
+                  週に2回ほど行われています。Railay beachで
                   MuayThai観戦ができるおすすめのスポットです。
                 </p>
               </Col>
-              <Col className='text-center' style={{marginTop: '-80px'}} sm={3}>
+              <Col className='text-center MuayThaiPhoto' sm={3}>
                 <img
                   alt={MuayThai}
                   src={MuayThai}
-                  style={{ height: '300px' }}
+                  className='MuayThaiPhoto'
                 />
               </Col>
-              <Col className='text-center' style={{marginTop: '-80px'}} sm={4}>
+              <Col className='text-center' sm={3}>
                 <iframe
                   src={'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3950.8652403719175!2d98.84152767492232!3d8.012830292013398!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3051ea990afc1809%3A0xc2501699ee8909ef!2sThe%20Last%20Bar!5e0!3m2!1sja!2sjp!4v1704766078594!5m2!1sja!2sjp'}
-                  style={{width: '400px', height: '300px', border: '0', allowfullscreen: "", loading: 'lazy', referrerpolicy: 'no-referrer-when-downgrade'}}
+                  style={{width: '300px', height: '255px', border: '0', allowfullscreen: "", loading: 'lazy', referrerpolicy: 'no-referrer-when-downgrade'}}
                   title={'Muay Thai'}
+                  className='MuayThaigoogle'
                 />
               </Col>
             </Row>
-            <Row style={{ marginTop: '150px' }}>
+            <Row>
               <Col className='text-center' sm={4}>
                 <img
                   alt={LocalThaiFoodRestaurant}
                   src={LocalThaiFoodRestaurant}
-                  style={{width: '600px'}}
+                  className='LocalThaiFoodRestaurantLogo'
                 />
               </Col>
             </Row>
             <Row>
-              <Col  style={{marginLeft: '100px'}} sm={4}>
+              <Col className='LocalThaiFoodRestaurantText' sm={4}>
                 <p>
-                  「Local Thai Food Restaurant」は東西のRailay beachを結ぶ飲食店ストリートにあるタイレストランです。<br />
-                  ローカルな味付けのタイ料理を楽しむことができます。<br />
+                  「Local Thai Food Restaurant」は東西のRailay beachを結ぶ飲食店ストリートにあるタイレストランです。
+                  タイならではのパッタイからパパイヤサラダなど、ローカルな味付けのタイ料理を楽しむことができます。<br />
                   <br />
-                  ランチもディナー時間も、どちらも営業しているので、クライミングの休憩時間の昼食や、クライミング後の<br />
-                  夕食とタイビールであるSingha(シンハー) を飲みに行ってはどうでしょうか。
+                  ランチもディナー時間も、どちらも営業しているので、クライミングの休憩時間の昼食や、クライミング後に
+                  夕食として、タイのビール Singha(シンハー) を飲みに行ってはどうでしょうか。
                 </p>
               </Col>
-              <Col className='text-center' style={{marginTop: '-80px'}} sm={3}>
+              <Col className='text-center' sm={3}>
                 <img
                   alt={Coco2004Restaurant}
                   src={Coco2004Restaurant}
-                  style={{ height: '300px' }}
+                  className='Coco2004Restaurant'
                 />
               </Col>
-              <Col className='text-center' style={{marginTop: '-80px'}} sm={4}>
+              <Col className='text-center mt-3' sm={3}>
                 <iframe
                   src={'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d987.7176946261856!2d98.8401679940941!3d8.01225973175863!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3051eb7478041841%3A0xdb65abcfb34208bf!2sLocal%20Thai%20Food%20Restaurant!5e0!3m2!1sen!2sjp!4v1705043623907!5m2!1sen!2sjp'}
-                  style={{width: '400px', height: '300px', border: '0', allowfullscreen: "", loading: 'lazy', referrerpolicy: 'no-referrer-when-downgrade'}}
-                  title={'Muay LocalThaiFoodRestaurant'}
+                  style={{width: '300px', height: '255px', border: '0', allowfullscreen: "", loading: 'lazy', referrerpolicy: 'no-referrer-when-downgrade'}}
+                  title={'LocalThaiFoodRestaurant'}
                 />
               </Col>
             </Row>
-            <Row>
-              <Col sm={6} style={{marginLeft: '100px'}}>
+            <Row className='mt-3'>
+              <Col className="thaiFood mt-3" sm={6}>
                 <img
                   alt={thaiFood}
                   src={thaiFood}
@@ -324,26 +370,26 @@ class Spot extends React.Component {
                   style={{ height: '150px' }}
                 />
               </Col>
-              <Col sm={4} className='mt-5'>
+              <Col className='mt-5' sm={4}>
                 <Row>
-                  <Col sm={3}>
+                  <Col sm={3} xs={4}>
                     <p>
                       アドレス
                     </p>
                   </Col>
-                  <Col sm={9}>
+                  <Col sm={9} xs={8}>
                     <p>
                       32, บ้านเลขที่ 652/36 บ้านเลขที่ 652 Ao Nang, เมือง Krabi 81000, Thailand
                     </p>
                   </Col>
                 </Row>
                 <Row>
-                  <Col sm={3}>
+                  <Col sm={3} xs={4}>
                     <p>
                       営業時間
                     </p>
                   </Col>
-                  <Col sm={9}>
+                  <Col sm={9} xs={8}>
                     <p>
                       10:00 ~ 22:00
                     </p>

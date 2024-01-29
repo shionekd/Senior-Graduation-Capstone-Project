@@ -2,7 +2,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 
-function ColorSchemesExample() {
+function Navibar() {
     return (
     <>
         <Navbar bg="light" data-bs-theme="--bs-body-bg">
@@ -22,4 +22,4 @@ function ColorSchemesExample() {
     );
 }
 
-export default ColorSchemesExample;
+export default Navibar;

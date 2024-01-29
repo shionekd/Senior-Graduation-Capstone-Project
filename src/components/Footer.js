@@ -1,4 +1,5 @@
 import "../App.css";
+// import PDF from "../images/KrabiClimbingMap.pdf";
 
 /* bootstrap */
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -9,28 +10,47 @@ import Col from 'react-bootstrap/Col';
 /* img */
 import logo from "../images/logo.png";
 
+
 function Footer() {
   return (
     <section id="footer">
       <Container>
         <Row className="footerRow">
-          <Col className="d-flex align-items-center justify-content-center">
-          <img
-              className="footerLogo"
-              alt={logo}
-              src={logo}
-          />
+          <Col></Col>
+          <Col className="d-flex align-items-center justify-content-center mt-5 ml3" sm={3}>
+            <a href="/">
+              <img
+                  className="footerLogo"
+                  alt={logo}
+                  src={logo}
+              />
+            </a>
           </Col>
-          <Col className="d-flex align-items-center justify-content-center">
-            <p className="copyright">
-              Copyright&nbsp;&copy;&nbsp;Krabi climbing
+          <Col className="d-flex align-items-center justify-content-center" sm={3} style={{marginTop: '90px'}}>
+            <p className="contactInfo text-center">contact info
+              <span style={{fontSize: 'small'}}><br />krabi_climbing@info.com</span>
             </p>
           </Col>
+          <Col className="d-flex align-items-center justify-content-center footerDLD" sm={2} style={{marginLeft: '70px', marginTop: '100px'}}>
+            <a
+              // href={PDF}
+              download="Krabi Climbing Map"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <p className="visibilityHidden">
+                クライミングマップ<br />
+                ダウンロードはこちら
+              </p>
+            </a>
+          </Col>
+          <Col></Col>
+        </Row>
+        <Row>
           <Col className="d-flex align-items-center justify-content-center">
-            <p>
-              contact info<br />
-                  krabi_climbing@info.com
-            </p>
+              <p className="text-center ml-4" style={{fontSize: "small"}}>
+                Copyright&nbsp;&copy;&nbsp;Krabi climbing
+              </p>
           </Col>
         </Row>
       </Container>

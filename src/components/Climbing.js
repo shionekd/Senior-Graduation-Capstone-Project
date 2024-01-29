@@ -1,8 +1,10 @@
 import '../App.css';
+import 'animate.css';
 
 /* react */
 import React from 'react';
 import ModalComponent from './Modal';
+import { motion } from "framer-motion";
 
 /* bootstrap */
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -12,6 +14,12 @@ import Col from 'react-bootstrap/Col';
 import Badge from 'react-bootstrap/Badge';
 
 /* img */
+import slab from "../images/slab.jpg";
+import vertical from "../images/vertical.jpg";
+import overhung from "../images/overhung.jpg";
+import roof from "../images/roof.jpg";
+import tufa from "../images/tufa.jpg";
+
 /* one-two-three */
 import OnetwothreeLogo from "../images/One-Two-Three-Logo.jpg";
 import Onetwothree from "../images/One-two-three.jpg";
@@ -76,95 +84,96 @@ class Climbing extends React.Component {
     this.handleCloseModal10 = this.handleCloseModal10.bind(this);
     this.handleOpenModal11 = this.handleOpenModal11.bind(this);
     this.handleCloseModal11 = this.handleCloseModal11.bind(this);
-  }
+    
+  };
 
   handleOpenModal1 () {
     this.setState({ showModal1: true });
-  }
+  };
 
   handleCloseModal1 () {
     this.setState({ showModal1: false });
-  }
+  };
 
   handleOpenModal2 () {
     this.setState({ showModal2: true });
-  }
+  };
 
   handleCloseModal2 () {
     this.setState({ showModal2: false });
-  }
+  };
 
   handleOpenModal3 () {
     this.setState({ showModal3: true });
-  }
+  };
 
   handleCloseModal3 () {
     this.setState({ showModal3: false });
-  }
+  };
 
   handleOpenModal4 () {
     this.setState({ showModal4: true });
-  }
+  };
 
   handleCloseModal4 () {
     this.setState({ showModal4: false });
-  }
+  };
 
   handleOpenModal5 () {
     this.setState({ showModal5: true });
-  }
+  };
 
   handleCloseModal5 () {
     this.setState({ showModal5: false });
-  }
+  };
 
   handleOpenModal6 () {
     this.setState({ showModal6: true });
-  }
+  };
 
   handleCloseModal6 () {
     this.setState({ showModal6: false });
-  }
+  };
 
   handleOpenModal7 () {
     this.setState({ showModal7: true });
-  }
+  };
 
   handleCloseModal7 () {
     this.setState({ showModal7: false });
-  }
+  };
 
   handleOpenModal8 () {
     this.setState({ showModal8: true });
-  }
+  };
 
   handleCloseModal8 () {
     this.setState({ showModal8: false });
-  }
+  };
 
   handleOpenModal9 () {
     this.setState({ showModal9: true });
-  }
+  };
 
   handleCloseModal9 () {
     this.setState({ showModal9: false });
-  }
+  };
 
   handleOpenModal10 () {
     this.setState({ showModal10: true });
-  }
+  };
 
   handleCloseModal10 () {
     this.setState({ showModal10: false });
-  }
+  };
 
   handleOpenModal11 () {
     this.setState({ showModal11: true });
-  }
+  };
 
   handleCloseModal11 () {
     this.setState({ showModal11: false });
-  }
+  };
 
   render () {
     return (
@@ -173,18 +182,32 @@ class Climbing extends React.Component {
           <Container>
             <Row>
               <Col className='justify-content-center text-center mt-5'>
-                <h2>おすすめクライミングスポット</h2>
+                <h2 className='pageTitle'>おすすめクライミングスポット</h2>
               </Col>
             </Row>
 
 {/* One-Two-Three */}
             <Row className='mt-5'>
               <Col className='justify-content-center text-center' sm={6}>
-                <img
-                  className="logoSize"
-                  src={OnetwothreeLogo}
-                  alt={OnetwothreeLogo}
-                />
+                <motion.div
+                  initial={{
+                    opacity: 0,
+                    y: 400
+                  }}
+                  animate={{
+                    opacity: 1,
+                    y: 0
+                  }}
+                  transition={{
+                    duration: 4
+                  }}
+                >
+                  <img
+                    className="logoSize"
+                    src={OnetwothreeLogo}
+                    alt={OnetwothreeLogo}
+                  />
+                </motion.div>
               </Col>
             </Row>
             <Row>
@@ -194,48 +217,127 @@ class Climbing extends React.Component {
                     <p>タイプ</p>
                   </Col>
                   <Col sm={10}>
-                    img
+                    <motion.div
+                      initial={{
+                        opacity: 0,
+                        y: 400
+                      }}
+                      animate={{
+                        opacity: 1,
+                        y: 0
+                      }}
+                      transition={{
+                        duration: 4
+                      }}
+                    >
+                      <Row>
+                        <Col className='justify-content-center text-center' sm={2} xs={2}>
+                          <Row className='justify-content-center text-center'>
+                            <img
+                              src={slab}
+                              alt={slab}
+                              style={{width: '80px'}}
+                            />
+                          </Row>
+                          <Row><p className='typeTitle'>Slab</p></Row>
+                        </Col>
+                        <Col className='justify-content-center text-center' sm={2} xs={2}>
+                          <Row className='justify-content-center text-center'>
+                            <img
+                              src={vertical}
+                              alt={vertical}
+                              style={{width: '80px'}}
+                            />
+                          </Row>
+                          <Row><p className='typeTitle'>Vertical</p></Row>
+                        </Col>
+                        <Col className='justify-content-center text-center' sm={2} xs={2}>
+                          <Row className='justify-content-center text-center'>
+                            <img
+                              src={overhung}
+                              alt={overhung}
+                              style={{width: '80px'}}
+                            />
+                          </Row>
+                          <Row><p className='typeTitle'>Overhung</p></Row>
+                        </Col>
+                        <Col className='justify-content-center text-center' sm={2} xs={2}>
+                          <Row className='justify-content-center text-center'>
+                            <img
+                              src={roof}
+                              alt={roof}
+                              style={{width: '80px'}}
+                            />
+                          </Row>
+                          <Row><p className='typeTitle'>Roof</p></Row>
+                        </Col>
+                        <Col className='justify-content-center text-center' sm={2} xs={2}>
+                          <Row className='justify-content-center text-center'>
+                            <img
+                              src={tufa}
+                              alt={tufa}
+                              style={{width: '80px'}}
+                            />
+                          </Row>
+                          <Row><p className='typeTitle'>Tufa</p></Row>
+                        </Col>
+                      </Row>
+                    </motion.div>
                   </Col>
                 </Row>
-                <Row>
+                <Row className='mt-1'>
                   <Col sm={2}>
                     <p>レベル</p>
                   </Col>
                   <Col sm={10}>
-                    <Badge bg="success">5a</Badge>&nbsp;
-                    <Badge bg="success">5b+</Badge>&nbsp;
-                    <Badge bg="success">6a</Badge>&nbsp;
-                    <Badge bg="warning">6b</Badge>&nbsp;
-                    <Badge bg="warning">6c</Badge>&nbsp;
-                    <Badge bg="warning">7a</Badge>&nbsp;
-                    <Badge bg="danger">7b</Badge>&nbsp;
-                    <Badge bg="danger">7c</Badge>&nbsp;
-                    <Badge bg="danger">8a</Badge>&nbsp;
+                    <motion.div
+                      initial={{
+                        opacity: 0,
+                        y: 400
+                      }}
+                      animate={{
+                        opacity: 1,
+                        y: 0
+                      }}
+                      transition={{
+                        duration: 4
+                      }}
+                    >
+                      <Badge bg="success">5a</Badge>&nbsp;
+                      <Badge bg="success">5b+</Badge>&nbsp;
+                      <Badge bg="success">6a</Badge>&nbsp;
+                      <Badge bg="warning">6b</Badge>&nbsp;
+                      <Badge bg="warning">6c</Badge>&nbsp;
+                      <Badge bg="warning">7a</Badge>&nbsp;
+                      <Badge bg="danger">7b</Badge>&nbsp;
+                      <Badge bg="danger">7c</Badge>&nbsp;
+                      <Badge bg="danger">8a</Badge>&nbsp;
+                    </motion.div>
                   </Col>
                 </Row>
-                <Row>
-                  <Col sm={2}>
+                <Row className='mt-1'>
+                  <Col sm={2} xs={4}>
                     <p>場所</p>
                   </Col>
-                  <Col sm={10}>
+                  <Col sm={10} xs={8}>
                     Railay Beach
                   </Col>
                 </Row>
-                <Row>
-                  <Col sm={2}>
+                <Row className='mt-1'>
+                  <Col sm={2} xs={4}>
                     <p>時間帯</p>
                   </Col>
-                  <Col sm={10}>
+                  <Col sm={10} xs={8}>
                     潮の満ち引きによって異なる
                   </Col>
                 </Row>
-                <Row>
+                <Row className='mt-1'>
                   <Col sm={2}>
                     <p>概要</p>
                   </Col>
                   <Col sm={10}>
-                    One-Two-Threeは東側のRailay beachにあり、<br />
-                    5aから8a+まで、様々なレベルの全31ルートが存在しており、<br />
+                    One-Two-Threeは東側のRailay beachにあります。<br />
+                    5aから8a+まで、様々なレベルの全31ルートが存在しており、
                     他のエリアに比べてビギナークラスのルートが数多く存在しているため、
                     屋外のクライミングが初めての方に人気のスポットです。<br />
                     クライミング経験者の方には、1日目のセッションとして体慣らしスポットとしてもおすすめです。
@@ -243,7 +345,7 @@ class Climbing extends React.Component {
                     <br /><br />
                   </Col>
                 </Row>
-                <Row>
+                <Row className='mt-1'>
                   <Col sm={2}>
                     <p>アクセス</p>
                   </Col>
@@ -256,12 +358,26 @@ class Climbing extends React.Component {
                   </Col>
                 </Row>
               </Col>
-              <Col className='justify-content-center text-center' style={{marginTop: '-60px'}}>
-                <img
-                  src={Onetwothree}
-                  alt={Onetwothree}
-                  style={{ height: '500px' }}
-                />
+              <Col className='justify-content-center text-center'>
+                <motion.div
+                  initial={{
+                    opacity: 0,
+                    y: -400
+                  }}
+                  animate={{
+                    opacity: 1,
+                    y: 0
+                  }}
+                  transition={{
+                    duration: 4
+                  }}
+                >
+                  <img
+                    src={Onetwothree}
+                    alt={Onetwothree}
+                    className='onetwothreeMap'
+                  />
+                </motion.div>
               </Col>
             </Row>
             <Row className='mb-5' style={{marginTop: '30px'}}>
@@ -328,6 +444,35 @@ class Climbing extends React.Component {
                     <p>タイプ</p>
                   </Col>
                   <Col sm={10}>
+                    <Row>
+                      <Col className='justify-content-center text-center' sm={2} xs={2}>
+                        <Row className='justify-content-center text-center'>
+                          <img
+                            src={overhung}
+                            alt={overhung}
+                            style={{width: '80px'}}
+                          />
+                        </Row>
+                        <Row><p className='typeTitle'>Overhung</p></Row>
+                      </Col>
+                      <Col className='justify-content-center text-center' sm={2} xs={2}>
+                        <Row className='justify-content-center text-center'>
+                          <img
+                            src={roof}
+                            alt={roof}
+                            style={{width: '80px'}}
+                          />
+                        </Row>
+                        <Row><p className='typeTitle'>Roof</p></Row>
+                      </Col>
+                    </Row>
+                  </Col>
+                </Row>
+                <Row className='mt-1'>
+                  <Col sm={2}>
+                    <p>レベル</p>
+                  </Col>
+                  <Col sm={10}>
                     <Badge bg="primary">4a</Badge>&nbsp;
                     <Badge bg="primary">4a+</Badge>&nbsp;
                     <Badge bg="primary">4b</Badge>&nbsp;
@@ -358,44 +503,34 @@ class Climbing extends React.Component {
                     <Badge bg="dark">9a+</Badge>&nbsp;
                   </Col>
                 </Row>
-                <Row>
-                  <Col sm={2}>
-                    <p>レベル</p>
-                  </Col>
-                  <Col sm={10}>
-                    img
-                  </Col>
-                </Row>
-                <Row>
-                  <Col sm={2}>
+                <Row className='mt-4'>
+                  <Col sm={2} xs={4}>
                     <p>場所</p>
                   </Col>
-                  <Col sm={10}>
+                  <Col sm={10} xs={8}>
                   Ton Sai Beach
                   </Col>
                 </Row>
-                <Row>
-                  <Col sm={2}>
+                <Row className='mt-1'>
+                  <Col sm={2} xs={4}>
                     <p>時間帯</p>
                   </Col>
-                  <Col sm={10}>
+                  <Col sm={10} xs={8}>
                     1日中
                   </Col>
                 </Row>
-                <Row>
+                <Row className='mt-1'>
                   <Col sm={2}>
                     <p>概要</p>
                   </Col>
                   <Col sm={10}>
-                    
                     Krabiに来る多くのクライマーの目的は、Ton Sai Wallにある！と言っても過言ではありません。
                     Ton Sai Wallには6bから8cまでの全63ルートが存在しており、
                     Ton Sai Wallで1日クライミングをしても時間が足りないほど有意義な時間を過ごせるでしょう。<br />
-                    Krabiに来たらTon Sai Wallを訪れることをおすすめします！
                     <br /><br />
                   </Col>
                 </Row>
-                <Row>
+                <Row className='mt-1'>
                   <Col sm={2}>
                     <p>アクセス</p>
                   </Col>
@@ -420,16 +555,17 @@ class Climbing extends React.Component {
                   </Col>
                 </Row>
               </Col>
-              <Col className='justify-content-center text-center' style={{marginTop: '-90px'}}>
+              <Col className='justify-content-center text-center'>
                 <img
                   src={Tonsaiwall}
                   alt={Tonsaiwall}
-                  style={{ height: '500px' }}
+                  className='tonsaiMap'
                 />
               </Col>
             </Row>
             <Row className='mb-5' style={{marginTop: '100px'}}>
-              <Col className='justify-content-center text-center ml-5' sm={3}>
+              <Col sm={1}></Col>
+              <Col className='justify-content-center text-center' sm={3}>
                 <div className='zoomPhotoOutside'>
                   <img
                     className="zoomPhoto"
@@ -440,7 +576,7 @@ class Climbing extends React.Component {
                 </div>
                 <p className='mr-5'><Badge bg="success">6</Badge> Humanality</p>
               </Col>
-              <Col className='justify-content-center text-center mt-5' sm={4}>
+              <Col className='justify-content-center text-center' sm={4}>
                 <div className='zoomPhotoWideOutside'>
                   <img
                     className="zoomPhotoWide"
@@ -451,7 +587,7 @@ class Climbing extends React.Component {
                 </div>
                 <p className='mr-5'><Badge bg="warning">6c</Badge> Crying Rock</p>
               </Col>
-              <Col className='justify-content-center text-center mt-5' sm={4}>
+              <Col className='justify-content-center text-center' sm={4}>
                 <div className='zoomPhotoWideOutside'>
                   <img
                     className="zoomPhotoWide"
@@ -466,25 +602,46 @@ class Climbing extends React.Component {
 
 {/* Wee's-Present-Wall */}
             <Row className='mt-5'>
-              <Col className='justify-content-center text-center' sm={6}>
+              <Col className='justify-content-center text-center weesTitle'>
                 <img
                   src={WeesPresentWallLogo}
                   alt={WeesPresentWallLogo}
-                  style={{width: '700px'}}
+                  className='weesTitle'
                 />
               </Col>
             </Row>
-            <Row  style={{marginTop: '-90px'}}>
-              <Col className='ml-5'>
+            <Row>
+              <Col sm={6}>
                 <Row>
                   <Col sm={2}>
                     <p>タイプ</p>
                   </Col>
                   <Col sm={10}>
-                    img
+                  <Row>
+                      <Col className='justify-content-center text-center' sm={2} xs={2}>
+                        <Row className='justify-content-center text-center'>
+                          <img
+                            src={slab}
+                            alt={slab}
+                            style={{width: '80px'}}
+                          />
+                        </Row>
+                        <Row><p className='typeTitle'>Slab</p></Row>
+                      </Col>
+                      <Col className='justify-content-center text-center' sm={2} xs={2}>
+                        <Row className='justify-content-center text-center'>
+                          <img
+                            src={vertical}
+                            alt={vertical}
+                            style={{width: '80px'}}
+                          />
+                        </Row>
+                        <Row><p className='typeTitle'>Vertical</p></Row>
+                      </Col>
+                    </Row>
                   </Col>
                 </Row>
-                <Row>
+                <Row className='mt-1'>
                   <Col sm={2}>
                     <p>レベル</p>
                   </Col>
@@ -502,23 +659,23 @@ class Climbing extends React.Component {
                     <Badge bg="danger">7c+</Badge>&nbsp;
                   </Col>
                 </Row>
-                <Row>
-                  <Col sm={2}>
+                <Row className='mt-3'>
+                  <Col sm={2} xs={4}>
                     <p>場所</p>
                   </Col>
-                  <Col sm={10}>
+                  <Col sm={10} xs={8}>
                   Railay Beach
                   </Col>
                 </Row>
-                <Row>
-                  <Col sm={2}>
+                <Row className='mt-1'>
+                  <Col sm={2} xs={4}>
                     <p>時間帯</p>
                   </Col>
-                  <Col sm={10}>
+                  <Col sm={10} xs={8}>
                     1日中
                   </Col>
                 </Row>
-                <Row>
+                <Row className='mt-1'>
                   <Col sm={2}>
                     <p>概要</p>
                   </Col>
@@ -530,7 +687,7 @@ class Climbing extends React.Component {
                     <br /><br />
                   </Col>
                 </Row>
-                <Row>
+                <Row className='mt-1'>
                   <Col sm={2}>
                     <p>アクセス</p>
                   </Col>
@@ -544,7 +701,7 @@ class Climbing extends React.Component {
                     </p>
                   </Col>
                 </Row>
-                <Row>
+                <Row className='mt-1'>
                   <Col sm={2}>
                     <p>注意</p>
                   </Col>
@@ -556,16 +713,16 @@ class Climbing extends React.Component {
                   </Col>
                 </Row>
               </Col>
-              <Col className='justify-content-center text-center' style={{marginTop: '-90px'}}>
+              <Col className='justify-content-center text-center' sm={5}>
                 <img
                   src={WeesPresentWall}
                   alt={WeesPresentWall}
-                  style={{ height: '500px' }}
+                  className='weesMap'
                 />
               </Col>
             </Row>
             <Row className='mb-5' style={{marginTop: '100px'}}>
-              <Col className='justify-content-center text-center'>
+              <Col className='justify-content-center text-center' sm={3}>
                 <div className='zoomPhotoOutside'>
                   <img
                     className="zoomPhoto"
@@ -576,7 +733,7 @@ class Climbing extends React.Component {
                 </div>
                 <p className='mr-5'><Badge bg="success">5b</Badge> Easy Approach</p>
               </Col>
-              <Col className='justify-content-center text-center'>
+              <Col className='justify-content-center text-center' sm={3}>
                 <div className='zoomPhotoOutside'>
                   <img
                     className="zoomPhoto"
@@ -587,7 +744,7 @@ class Climbing extends React.Component {
                 </div>
                 <p className='mr-5'><Badge bg="success">6a</Badge> A Man Can Tell a 1000 Lies</p>
               </Col>
-              <Col className='justify-content-center text-center'>
+              <Col className='justify-content-center text-center' sm={3}>
                 <div className='zoomPhotoOutside'>
                   <img
                     className="zoomPhoto"
@@ -598,7 +755,7 @@ class Climbing extends React.Component {
                 </div>
                 <p className='mr-5'><Badge bg="warning">7a</Badge> Milky Way</p>
               </Col>
-              <Col className='justify-content-center text-center'>
+              <Col className='justify-content-center text-center' sm={3}>
                 <div className='zoomPhotoOutside'>
                   <img
                     className="zoomPhoto"

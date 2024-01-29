@@ -27,7 +27,7 @@ class ModalComponent extends React.Component {
       >
         <Row>
           <Col className='justify-content-center text-center'>
-            <CloseButton onClick={this.handleCloseModal} style={{marginLeft: '-1300px'}}/>
+            <CloseButton onClick={this.handleCloseModal} style={{marginRight: '-1250px'}}/>
             <h2>{this.props.title}</h2>
             <img
               src={assets.default[this.props.src]}
