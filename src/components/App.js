@@ -48,8 +48,8 @@ const App = () => {
           <main className={active ? "inside2" : "inside"}>
             <div class="content_inner">
               <div class="col-10 d-flex ajustdiv">
-                <a href="/"><img className="HomeLogo" src={logo} alt="" /></a>
-                <a href="/" className="KrabiClimbingLogo"  style={{marginTop: '20px'}}><p className="titlefont">　Krabi Climbing</p></a>
+                <a href="/senior-graduation-capstone-project/"><img className="HomeLogo" src={logo} alt="" /></a>
+                <a href="/senior-graduation-capstone-project/" className="KrabiClimbingLogo"  style={{marginTop: '20px'}}><p className="titlefont">　Krabi Climbing</p></a>
               </div>
               <div class="col-4 text-right mt-1"></div>
               <RouterFunction />
