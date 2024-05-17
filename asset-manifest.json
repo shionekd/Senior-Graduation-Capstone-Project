@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/senior-graduation-capstone-project/static/css/main.1a56b992.css",
-    "main.js": "/senior-graduation-capstone-project/static/js/main.66297a08.js",
+    "main.css": "/senior-graduation-capstone-project/static/css/main.65c95fd8.css",
+    "main.js": "/senior-graduation-capstone-project/static/js/main.9df0035a.js",
     "static/media/thaiFood.png": "/senior-graduation-capstone-project/static/media/thaiFood.399d4f97fb8c0fb7c9af.png",
     "static/media/thaiFood2.png": "/senior-graduation-capstone-project/static/media/thaiFood2.3a59685efef8c07d6a0e.png",
     "static/media/thaiFood3.png": "/senior-graduation-capstone-project/static/media/thaiFood3.1e3c8e7ccdb032e1e488.png",
@@ -78,11 +78,11 @@
     "static/media/muay-thai-logo.jpg": "/senior-graduation-capstone-project/static/media/muay-thai-logo.b71b09451e2718323d9f.jpg",
     "static/media/Bat-Cave-logo.jpg": "/senior-graduation-capstone-project/static/media/Bat-Cave-logo.585e89ef63188731de74.jpg",
     "index.html": "/senior-graduation-capstone-project/index.html",
-    "main.1a56b992.css.map": "/senior-graduation-capstone-project/static/css/main.1a56b992.css.map",
-    "main.66297a08.js.map": "/senior-graduation-capstone-project/static/js/main.66297a08.js.map"
+    "main.65c95fd8.css.map": "/senior-graduation-capstone-project/static/css/main.65c95fd8.css.map",
+    "main.9df0035a.js.map": "/senior-graduation-capstone-project/static/js/main.9df0035a.js.map"
   },
   "entrypoints": [
-    "static/css/main.1a56b992.css",
-    "static/js/main.66297a08.js"
+    "static/css/main.65c95fd8.css",
+    "static/js/main.9df0035a.js"
   ]
 }
